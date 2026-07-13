@@ -79,10 +79,13 @@ export function initDestinationsDeck() {
   let activeIndex = 0;
   let isTransitioning = false;
 
-  // Estado de bloqueo
+  // Estado de bloqueo y IDs de timeouts
   let locked = false;
   let isScrollLockActive = false;
   let canLock = true; // Controla si se puede enganchar el bloqueo (se desactiva al salir y se reactiva cuando sale de pantalla)
+  let visibleTimeoutId = null;
+  let lockTimeoutId = null;
+  let readyTimeoutId = null;
 
   const section = document.querySelector('.destinations-section');
   if (!section) return;
@@ -92,12 +95,18 @@ export function initDestinationsDeck() {
     locked = false;
     isScrollLockActive = false;
     canLock = true;
+    clearTimeout(visibleTimeoutId);
+    clearTimeout(lockTimeoutId);
+    clearTimeout(readyTimeoutId);
+
     if (window.innerWidth > 768) {
       document.body.classList.remove('destinations-locked');
       document.documentElement.classList.remove('destinations-locked');
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
       document.documentElement.classList.add('snap-scroll-enabled');
+    } else {
+      section.classList.remove('destinations-locked-touch');
     }
   };
 
@@ -121,15 +130,19 @@ export function initDestinationsDeck() {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    clearTimeout(visibleTimeoutId);
+    clearTimeout(lockTimeoutId);
+    clearTimeout(readyTimeoutId);
+
     // Disparar animación de entrada (destinations-visible) con un leve retraso
-    setTimeout(() => {
+    visibleTimeoutId = setTimeout(() => {
       if (locked) {
         section.classList.add('destinations-visible');
       }
     }, 200);
 
     // Activar anclaje de scroll duro y desactivar snap sólo al terminar la transición (600ms)
-    setTimeout(() => {
+    lockTimeoutId = setTimeout(() => {
       if (locked) {
         isScrollLockActive = true;
         
@@ -139,12 +152,14 @@ export function initDestinationsDeck() {
           document.documentElement.classList.remove('snap-scroll-enabled');
           document.body.style.overflow = 'hidden';
           document.documentElement.style.overflow = 'hidden';
+        } else {
+          section.classList.add('destinations-locked-touch');
         }
       }
     }, 600);
 
     // Habilitar físicas rápidas de coverflow después de la animación de entrada (1700ms)
-    setTimeout(() => {
+    readyTimeoutId = setTimeout(() => {
       if (locked) {
         section.classList.add('coverflow-ready');
       }
@@ -157,6 +172,10 @@ export function initDestinationsDeck() {
     isScrollLockActive = false;
     canLock = false; // Desactivar bloqueo temporalmente para permitir salir de la sección
 
+    clearTimeout(visibleTimeoutId);
+    clearTimeout(lockTimeoutId);
+    clearTimeout(readyTimeoutId);
+
     // Restaurar scroll de la página y reactivar scroll snapping
     if (window.innerWidth > 768) {
       document.body.classList.remove('destinations-locked');
@@ -164,6 +183,8 @@ export function initDestinationsDeck() {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
       document.documentElement.classList.add('snap-scroll-enabled');
+    } else {
+      section.classList.remove('destinations-locked-touch');
     }
 
     // Remover clases de animación para que se vuelvan a reproducir de cero en la próxima entrada
@@ -427,25 +448,32 @@ export function initDestinationsDeck() {
           }
         }
 
-        // En móvil, esperamos hasta que la sección esté casi completamente en pantalla (ratio >= 0.95)
+        // En móvil, esperamos hasta que la sección esté casi completamente en pantalla (ratio >= 0.8)
         // Esto indica que el scroll snap nativo ha terminado de centrar la sección, evitando tirones
-        if (isMobile && entry.intersectionRatio >= 0.95) {
+        if (isMobile && entry.intersectionRatio >= 0.8) {
           if (canLock && !locked) {
             enableLock();
           }
         }
       } else {
         // Fuera de pantalla: resetear todo y reactivar la posibilidad de bloquear para la próxima entrada
-        // Únicamente si no estamos bloqueados activamente, evitando que el momentum scroll rompa el estado
-        if (!locked) {
-          isScrollLockActive = false;
-          canLock = true; // Volver a permitir bloqueo al re-entrar en la sección
+        // Si el bloqueo completo (isScrollLockActive) no se ha consolidado todavía, cancelamos los timeouts
+        // para abortar y evitar congelar la página a mitad del scroll.
+        if (!isScrollLockActive) {
+          locked = false;
+          canLock = true;
+          clearTimeout(visibleTimeoutId);
+          clearTimeout(lockTimeoutId);
+          clearTimeout(readyTimeoutId);
+          
           if (window.innerWidth > 768) {
             document.body.classList.remove('destinations-locked');
             document.documentElement.classList.remove('destinations-locked');
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
             document.documentElement.classList.add('snap-scroll-enabled');
+          } else {
+            section.classList.remove('destinations-locked-touch');
           }
           section.classList.remove('destinations-visible', 'coverflow-ready');
           if (bgOverlay) {
@@ -454,7 +482,7 @@ export function initDestinationsDeck() {
         }
       }
     });
-  }, { threshold: [0.1, 0.3, 0.95] });
+  }, { threshold: [0.1, 0.3, 0.8] });
 
   observer.observe(section);
 

@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+.destinations-section.destinations-locked-touch {
+  touch-action: none !important;
+}
+
 /* Fondo Dinámico 3D Transicional */
 .destinations-bg-overlay {
   position: absolute;
