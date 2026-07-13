@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <!-- PWA & Mobile Fullscreen Meta Tags -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Anzoátegui" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#121212" />
+
+    <!-- SEO Meta Tags -->
+    <title>Anzoátegui Te Enamora | Portal de Turismo Inmersivo</title>
+    <meta name="description" content="Descubre los paisajes más hermosos de Anzoátegui, Venezuela. Mochima, Lechería, Barcelona y Guanta te esperan en una experiencia interactiva única." />
+    <meta name="keywords" content="Anzoátegui, Turismo, Mochima, Lechería, Barcelona, Guanta, Venezuela, Playas" />
+    <meta name="author" content="Anzoátegui Te Enamora" />
+
+    <!-- Google Fonts Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script type="module" crossorigin src="/assets/index-D-sOAi5u.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-uqywPd3c.css">
+  </head>
+  <body>
+    <!-- Pantalla de Carga Inmersiva (Preloader) -->
+    <div id="preloader" class="page-preloader">
+      <div class="preloader-content">
+        <div class="preloader-title-wrapper">
+          <h1 class="preloader-logo">ANZOÁTEGUI</h1>
+          <span class="preloader-subtitle">Te Enamora</span>
+        </div>
+        <div class="preloader-percentage-container">
+          <span class="preloader-percentage-num" id="preloader-percentage">00</span>
+          <span class="preloader-percentage-symbol">%</span>
+        </div>
+        <div class="preloader-progress-bar">
+          <div class="preloader-progress-line" id="preloader-line"></div>
+        </div>
+        <div class="preloader-status">Cargando Experiencia Inmersiva</div>
+      </div>
+    </div>
+
+    <!-- Cursor/Feedback Táctil Awwwards -->
+    <div id="touch-indicator" class="touch-indicator"></div>
+
+    <!-- Cabecera de Navegación Fija -->
+    <header class="main-header">
+      <div class="header-container">
+        <!-- Logo -->
+        <a href="/" class="logo-link" id="logo-link">
+          <span class="logo-text">ANZOÁTEGUI</span>
+        </a>
+        <!-- Botón Volver (oculto por defecto) -->
+        <button class="back-btn hidden" id="header-back-btn">
+          <span class="back-btn-arrow">←</span>
+          <span>Volver</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Contenedor Principal SPA -->
+    <main id="app">
+      <!-- El contenido de la página de inicio o detalles se inyectará aquí -->
+    </main>
+
+    <!-- Filtro SVG de Distorsión Líquida (Efecto WebGL Shaders) -->
+    <svg class="liquid-svg-filter" style="position: absolute; width: 0; height: 0; pointer-events: none;" width="0" height="0">
+      <defs>
+        <filter id="liquid-distortion">
+          <feTurbulence type="fractalNoise" baseFrequency="0.015 0.04" numOctaves="2" result="noise" />
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" id="liquid-displacement" />
+        </filter>
+      </defs>
+    </svg>
+
+  </body>
+</html>

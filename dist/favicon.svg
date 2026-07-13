@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <style>
+      .rotating-badge {
+        animation: sunBadgeRotate 20s linear infinite;
+        transform-origin: center;
+      }
+      .sun-center {
+        font-size: 22px;
+        dominant-baseline: middle;
+        text-anchor: middle;
+      }
+      .badge-text {
+        font-family: 'Montserrat', 'Inter', 'Helvetica Neue', sans-serif;
+        font-weight: 700;
+        font-size: 8.5px;
+        fill: #ffffff;
+      }
+      @keyframes sunBadgeRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </defs>
+  <g class="rotating-badge">
+    <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" fill="none" />
+    <text class="badge-text">
+      <textPath href="#circlePath" startOffset="0%">ANZOÁTEGUI TE ENAMORA • ANZOÁTEGUI •</textPath>
+    </text>
+  </g>
+  <text x="50" y="52" class="sun-center">☀️</text>
+</svg>

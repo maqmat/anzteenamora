@@ -1,0 +1,17 @@
+{
+  "name": "Anzoátegui Te Enamora",
+  "short_name": "Anzoátegui",
+  "description": "Portal de turismo inmersivo de Anzoátegui, Venezuela",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F8F6",
+  "theme_color": "#121212",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
