@@ -92,11 +92,13 @@ export function initDestinationsDeck() {
     locked = false;
     isScrollLockActive = false;
     canLock = true;
-    document.body.classList.remove('destinations-locked');
-    document.documentElement.classList.remove('destinations-locked');
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-    document.documentElement.classList.add('snap-scroll-enabled');
+    if (window.innerWidth > 768) {
+      document.body.classList.remove('destinations-locked');
+      document.documentElement.classList.remove('destinations-locked');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.classList.add('snap-scroll-enabled');
+    }
   };
 
   // ─── LOCK: anclar la página en esta sección ─────────────────────────────────
@@ -130,12 +132,14 @@ export function initDestinationsDeck() {
     setTimeout(() => {
       if (locked) {
         isScrollLockActive = true;
-        document.body.classList.add('destinations-locked');
-        document.documentElement.classList.add('destinations-locked');
         
-        document.documentElement.classList.remove('snap-scroll-enabled');
-        document.body.style.overflow = 'hidden';
-        document.documentElement.style.overflow = 'hidden';
+        if (window.innerWidth > 768) {
+          document.body.classList.add('destinations-locked');
+          document.documentElement.classList.add('destinations-locked');
+          document.documentElement.classList.remove('snap-scroll-enabled');
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
+        }
       }
     }, 600);
 
@@ -154,12 +158,13 @@ export function initDestinationsDeck() {
     canLock = false; // Desactivar bloqueo temporalmente para permitir salir de la sección
 
     // Restaurar scroll de la página y reactivar scroll snapping
-    document.body.classList.remove('destinations-locked');
-    document.documentElement.classList.remove('destinations-locked');
-    
-    document.body.style.overflow = '';
-    document.documentElement.style.overflow = '';
-    document.documentElement.classList.add('snap-scroll-enabled');
+    if (window.innerWidth > 768) {
+      document.body.classList.remove('destinations-locked');
+      document.documentElement.classList.remove('destinations-locked');
+      document.body.style.overflow = '';
+      document.documentElement.style.overflow = '';
+      document.documentElement.classList.add('snap-scroll-enabled');
+    }
 
     // Remover clases de animación para que se vuelvan a reproducir de cero en la próxima entrada
     section.classList.remove('destinations-visible', 'coverflow-ready');
@@ -422,9 +427,9 @@ export function initDestinationsDeck() {
           }
         }
 
-        // En móvil, esperamos hasta que la sección esté casi completamente en pantalla (ratio >= 0.8)
+        // En móvil, esperamos hasta que la sección esté casi completamente en pantalla (ratio >= 0.95)
         // Esto indica que el scroll snap nativo ha terminado de centrar la sección, evitando tirones
-        if (isMobile && entry.intersectionRatio >= 0.8) {
+        if (isMobile && entry.intersectionRatio >= 0.95) {
           if (canLock && !locked) {
             enableLock();
           }
@@ -435,11 +440,13 @@ export function initDestinationsDeck() {
         if (!locked) {
           isScrollLockActive = false;
           canLock = true; // Volver a permitir bloqueo al re-entrar en la sección
-          document.body.classList.remove('destinations-locked');
-          document.documentElement.classList.remove('destinations-locked');
-          document.body.style.overflow = '';
-          document.documentElement.style.overflow = '';
-          document.documentElement.classList.add('snap-scroll-enabled');
+          if (window.innerWidth > 768) {
+            document.body.classList.remove('destinations-locked');
+            document.documentElement.classList.remove('destinations-locked');
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = '';
+            document.documentElement.classList.add('snap-scroll-enabled');
+          }
           section.classList.remove('destinations-visible', 'coverflow-ready');
           if (bgOverlay) {
             bgOverlay.dataset.currentBg = "";
@@ -447,7 +454,7 @@ export function initDestinationsDeck() {
         }
       }
     });
-  }, { threshold: [0.1, 0.3, 0.8] });
+  }, { threshold: [0.1, 0.3, 0.95] });
 
   observer.observe(section);
 
