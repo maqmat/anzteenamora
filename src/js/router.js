@@ -232,7 +232,6 @@ function getHomeHTML() {
           <div class="active-destination-info">
             <h3 class="active-dest-name" id="active-dest-name">Mochima</h3>
             <p class="active-dest-desc" id="active-dest-desc">Un paraíso de islas vírgenes, arenas doradas y delfines jugueteando en aguas cristalinas. El destino preferido para el buceo en el Caribe.</p>
-            <button class="active-dest-link btn-editorial" id="active-dest-link" data-route="/mochima">Ver Detalles</button>
           </div>
           
           <!-- Controles / Indicador de Deck -->

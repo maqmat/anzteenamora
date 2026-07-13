@@ -49,7 +49,6 @@ export function initDestinationsDeck() {
   const cards = deck.querySelectorAll('.editorial-card');
   const nameEl = document.getElementById('active-dest-name');
   const descEl = document.getElementById('active-dest-desc');
-  const linkEl = document.getElementById('active-dest-link');
   const dots = document.querySelectorAll('.deck-dot');
   const bgOverlay = document.querySelector('.destinations-bg-overlay');
 
@@ -99,15 +98,12 @@ export function initDestinationsDeck() {
     clearTimeout(lockTimeoutId);
     clearTimeout(readyTimeoutId);
 
-    if (window.innerWidth > 768) {
-      document.body.classList.remove('destinations-locked');
-      document.documentElement.classList.remove('destinations-locked');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      document.documentElement.classList.add('snap-scroll-enabled');
-    } else {
-      section.classList.remove('destinations-locked-touch');
-    }
+    document.body.classList.remove('destinations-locked');
+    document.documentElement.classList.remove('destinations-locked');
+    document.documentElement.classList.add('snap-scroll-enabled');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    section.classList.remove('destinations-locked-touch');
   };
 
   // ─── LOCK: anclar la página en esta sección ─────────────────────────────────
@@ -147,10 +143,11 @@ export function initDestinationsDeck() {
         // Snap de seguridad instantáneo al centrado perfecto justo al congelar el viewport
         section.scrollIntoView({ behavior: 'auto', block: 'start' });
         
+        document.body.classList.add('destinations-locked');
+        document.documentElement.classList.add('destinations-locked');
+        document.documentElement.classList.remove('snap-scroll-enabled');
+        
         if (window.innerWidth > 768) {
-          document.body.classList.add('destinations-locked');
-          document.documentElement.classList.add('destinations-locked');
-          document.documentElement.classList.remove('snap-scroll-enabled');
           document.body.style.overflow = 'hidden';
           document.documentElement.style.overflow = 'hidden';
         } else {
@@ -178,15 +175,12 @@ export function initDestinationsDeck() {
     clearTimeout(readyTimeoutId);
 
     // Restaurar scroll de la página y reactivar scroll snapping
-    if (window.innerWidth > 768) {
-      document.body.classList.remove('destinations-locked');
-      document.documentElement.classList.remove('destinations-locked');
-      document.body.style.overflow = '';
-      document.documentElement.style.overflow = '';
-      document.documentElement.classList.add('snap-scroll-enabled');
-    } else {
-      section.classList.remove('destinations-locked-touch');
-    }
+    document.body.classList.remove('destinations-locked');
+    document.documentElement.classList.remove('destinations-locked');
+    document.documentElement.classList.add('snap-scroll-enabled');
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+    section.classList.remove('destinations-locked-touch');
 
     // Remover clases de animación para que se vuelvan a reproducir de cero en la próxima entrada
     section.classList.remove('destinations-visible', 'coverflow-ready');
@@ -261,25 +255,29 @@ export function initDestinationsDeck() {
         card.style.pointerEvents = 'none';
       } else {
         card.classList.add('next-card');
-        const offset = diff * 28;
-        const scale = 1 - diff * 0.07;
-        const translateZ = -diff * 110;
-        const rotateY = diff * 2;
+        const offset = diff * 16;
+        const scale = 1 - diff * 0.035;
+        const translateZ = -diff * 35;
+        const rotateY = 0;
 
         card.style.setProperty('--translateX', '0px');
         card.style.setProperty('--translateY', `${offset}px`);
         card.style.setProperty('--translateZ', `${translateZ}px`);
         card.style.setProperty('--scale', `${scale}`);
         card.style.setProperty('--tilt', `${rotateY}deg`);
-        card.style.setProperty('--card-opacity', diff === 1 ? '0.9' : diff === 2 ? '0.65' : '0.3');
+        card.style.setProperty('--card-opacity', diff === 1 ? '0.9' : diff === 2 ? '0.65' : '0.35');
         card.style.zIndex = `${10 - diff}`;
         card.style.pointerEvents = 'none';
       }
     });
 
     // Split-text reveal (Idea 2)
-    if (nameEl && descEl && linkEl) {
+    if (nameEl && descEl) {
       const data = destinationData[activeIndex];
+      
+      // Animación de salida de la descripción
+      descEl.classList.add('changing');
+      
       nameEl.innerHTML = '';
       data.name.split('').forEach((char) => {
         const span = document.createElement('span');
@@ -287,22 +285,23 @@ export function initDestinationsDeck() {
         span.innerHTML = char === ' ' ? '&nbsp;' : char;
         nameEl.appendChild(span);
       });
-      descEl.style.opacity = '0';
-      linkEl.style.opacity = '0';
 
       setTimeout(() => {
         nameEl.querySelectorAll('.split-char').forEach((span, i) => {
-          setTimeout(() => span.classList.add('reveal'), i * 40);
+          setTimeout(() => span.classList.add('reveal'), i * 35);
         });
       }, 50);
 
+      // Cambiar texto de descripción a mitad de camino y hacer fade in
       setTimeout(() => {
         descEl.textContent = data.desc;
-        linkEl.setAttribute('data-route', data.route);
-        descEl.style.opacity = '1';
-        linkEl.style.opacity = '1';
+        descEl.classList.remove('changing');
+      }, 250);
+
+      // Mantener isTransitioning = true hasta que la animación de la tarjeta termine (650ms)
+      setTimeout(() => {
         isTransitioning = false;
-      }, 280);
+      }, 650);
     } else {
       isTransitioning = false;
     }
@@ -486,20 +485,6 @@ export function initDestinationsDeck() {
   }, { threshold: [0.1, 0.3, 0.8] });
 
   observer.observe(section);
-
-  // Botón "Ver Detalles" del panel izquierdo
-  if (linkEl) {
-    linkEl.addEventListener('click', (e) => {
-      e.preventDefault();
-      const route = linkEl.getAttribute('data-route');
-      const activeCardId = `card-${destinationData[activeIndex].name.toLowerCase()}`;
-      if (window.routerNavigate) {
-        window.routerNavigate(route, activeCardId);
-      } else {
-        window.location.hash = `#${route}`;
-      }
-    });
-  }
 
   // Inicializar
   updateDeckLayout();
