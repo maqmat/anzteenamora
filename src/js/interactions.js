@@ -125,10 +125,8 @@ export function initDestinationsDeck() {
     activeIndex = 0;
     updateDeckLayout();
 
-    // Centrar suavemente la sección en pantalla (solo en desktop, en móvil el snapping nativo lo hace)
-    if (window.innerWidth > 768) {
-      section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    // Centrar suavemente la sección en pantalla
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     clearTimeout(visibleTimeoutId);
     clearTimeout(lockTimeoutId);

@@ -252,7 +252,7 @@ function getHomeHTML() {
             <!-- Card 1: Mochima -->
             <div class="editorial-card card-mochima" data-index="0" data-route="/mochima" id="card-mochima">
               <div class="card-media">
-                <img src="${DESTINATIONS.mochima.image}" alt="Mochima" />
+                <img src="${DESTINATIONS.mochima.image}" alt="Mochima" onerror="this.style.opacity='0';" />
               </div>
               <div class="card-overlay"></div>
               <div class="card-content">
@@ -264,7 +264,7 @@ function getHomeHTML() {
             <!-- Card 2: Lechería -->
             <div class="editorial-card card-lecheria" data-index="1" data-route="/lecheria" id="card-lecheria">
               <div class="card-media">
-                <img src="${DESTINATIONS.lecheria.image}" alt="Lechería" />
+                <img src="${DESTINATIONS.lecheria.image}" alt="Lechería" onerror="this.style.opacity='0';" />
               </div>
               <div class="card-overlay"></div>
               <div class="card-content">
@@ -276,7 +276,7 @@ function getHomeHTML() {
             <!-- Card 3: Barcelona -->
             <div class="editorial-card card-barcelona" data-index="2" data-route="/barcelona" id="card-barcelona">
               <div class="card-media">
-                <img src="${DESTINATIONS.barcelona.image}" alt="Barcelona" />
+                <img src="${DESTINATIONS.barcelona.image}" alt="Barcelona" onerror="this.style.opacity='0';" />
               </div>
               <div class="card-overlay"></div>
               <div class="card-content">
@@ -288,7 +288,7 @@ function getHomeHTML() {
             <!-- Card 4: Guanta -->
             <div class="editorial-card card-guanta" data-index="3" data-route="/guanta" id="card-guanta">
               <div class="card-media">
-                <img src="${DESTINATIONS.guanta.image}" alt="Guanta" />
+                <img src="${DESTINATIONS.guanta.image}" alt="Guanta" onerror="this.style.opacity='0';" />
               </div>
               <div class="card-overlay"></div>
               <div class="card-content">
