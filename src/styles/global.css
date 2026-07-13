@@ -1,0 +1,324 @@
+/* Import Google Fonts directly */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+:root {
+  /* Paleta de colores premium */
+  --bg-primary: #F9F8F6;       /* Blanco hueso / Gris ultra claro */
+  --text-primary: #121212;     /* Carbón profundo */
+  --text-secondary: #555555;   /* Gris medio */
+  --accent-gold: #C5A880;      /* Dorado arena */
+  --accent-gold-dark: #9F835A; /* Dorado envejecido */
+  --accent-gold-light: #E2D6C5;/* Arena claro */
+  
+  /* Fuentes */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  
+  /* Animaciones y transiciones premium */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  
+  /* Alturas y anchos */
+  --header-height: 70px;
+}
+
+/* Reset de estilos */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  overscroll-behavior-y: auto; /* Permite desplazamiento nativo fluido */
+  
+  /* Ocultar barra de scroll de la derecha */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE y Edge */
+}
+
+html.destinations-locked,
+body.destinations-locked {
+  background-color: #0b0b0b !important;
+  overflow: hidden !important;
+  overscroll-behavior-y: contain !important;
+}
+
+
+/* Ocultar barra de scroll de la derecha (Chrome, Safari, Opera) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scroll Snapping Habilitado Condicionalmente */
+html.snap-scroll-enabled {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+html.snap-scroll-enabled .hero-section,
+html.snap-scroll-enabled .intro-section,
+html.snap-scroll-enabled .destinations-section,
+html.snap-scroll-enabled .experiences-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+/* Grano de Ruido Dinámico (Dynamic Film Grain Overlay) para estética Awwwards */
+body::before {
+  content: "";
+  position: fixed;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  opacity: 0.055;
+  z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  animation: noiseGrainAnimation 0.5s infinite steps(6);
+}
+
+@keyframes noiseGrainAnimation {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-1%, -1%); }
+  20% { transform: translate(-3%, 2%); }
+  30% { transform: translate(2%, -2%); }
+  40% { transform: translate(-2%, 3%); }
+  50% { transform: translate(-1%, 1%); }
+  60% { transform: translate(2%, 2%); }
+  70% { transform: translate(3%, -1%); }
+  80% { transform: translate(-2%, -2%); }
+  90% { transform: translate(1%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Estilos de la Cabecera de Navegación Fija */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: inline-block;
+  z-index: 101;
+}
+
+.logo-svg {
+  width: 54px;
+  height: 54px;
+  display: block;
+  mix-blend-mode: difference;
+  transition: var(--transition-smooth);
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  mix-blend-mode: difference; /* Se adapta al fondo automáticamente */
+  transition: var(--transition-smooth);
+}
+
+/* Scrollbar personalizado para diseño móvil */
+::-webkit-scrollbar {
+  height: 4px;
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold-dark);
+}
+
+/* Clases utilitarias */
+.hidden {
+  display: none !important;
+}
+
+.no-scroll {
+  overflow: hidden !important;
+}
+
+/* Tipografía de títulos */
+h1, h2, h3 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+p {
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+/* Estilo general para botones interactivos */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-family: var(--font-sans);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Transiciones de Vista (View Transitions) globales */
+::view-transition-group(root) {
+  animation-duration: 0.6s;
+  animation-timing-function: var(--ease-out-quint);
+}
+
+/* Pantalla de Carga Inmersiva (Preloader) */
+.page-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0b0b0b;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.9s;
+  pointer-events: auto;
+}
+
+.page-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.preloader-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.preloader-logo {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  text-indent: 0.22em; /* Centrar perfecto con el letter-spacing */
+  animation: pulseLogo 2s infinite alternate ease-in-out;
+}
+
+.preloader-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  letter-spacing: 0.45em;
+  text-indent: 0.45em;
+  opacity: 0.85;
+}
+
+.preloader-percentage-container {
+  margin: 25px 0 10px;
+  font-family: var(--font-serif);
+  font-size: 5.5rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.95);
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  line-height: 1;
+}
+
+.preloader-percentage-symbol {
+  font-size: 1.8rem;
+  color: var(--accent-gold);
+  margin-left: 2px;
+  font-weight: 400;
+}
+
+.preloader-progress-bar {
+  width: 260px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.preloader-progress-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: var(--accent-gold);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.preloader-status {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 10px;
+}
+
+@keyframes pulseLogo {
+  0% {
+    opacity: 0.65;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}

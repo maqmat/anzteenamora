@@ -1,0 +1,92 @@
+/* Estilos para Skeletons Estéticos */
+.skeleton-shimmer {
+  background: linear-gradient(
+    90deg,
+    #ecebeb 25%,
+    #f3f2f0 37%,
+    #ecebeb 63%
+  );
+  background-size: 400% 100%;
+  animation: skeletonShimmerKeyframe 1.4s ease infinite;
+}
+
+@keyframes skeletonShimmerKeyframe {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Contenedor temporal del skeleton de la tarjeta */
+.skeleton-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  background-color: #ecebeb;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.skeleton-card-mochima {
+  width: 270px;
+  height: 380px;
+  border-radius: 16px;
+}
+
+.skeleton-card-lecheria {
+  width: 320px;
+  height: 250px;
+  border-radius: 40px;
+  transform: translateY(25px);
+}
+
+.skeleton-card-barcelona {
+  width: 260px;
+  height: 260px;
+  border-radius: 20px 20px 90px 20px;
+}
+
+.skeleton-card-guanta {
+  width: 250px;
+  height: 350px;
+  border-radius: 60px 12px 60px 12px;
+  transform: translateY(-10px);
+}
+
+/* Elementos internos del skeleton */
+.skeleton-tag {
+  width: 80px;
+  height: 12px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.skeleton-title {
+  width: 140px;
+  height: 24px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.skeleton-link {
+  width: 60px;
+  height: 10px;
+  border-radius: 4px;
+}
+
+/* Transición suave al cargar */
+.media-loaded .skeleton-shimmer {
+  display: none !important;
+}
+
+.card-content {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.media-loaded .card-content {
+  opacity: 1;
+}

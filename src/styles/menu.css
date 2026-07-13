@@ -1,0 +1,261 @@
+/* Estilos del Header */
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  transition: var(--transition-smooth);
+}
+
+.header-container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: inline-block;
+  z-index: 101;
+}
+
+.logo-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #ffffff;
+  mix-blend-mode: difference; /* Se adapta al fondo automáticamente */
+  transition: var(--transition-smooth);
+}
+
+/* Botón de Menú Hamburguesa */
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  z-index: 101;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.menu-toggle:active {
+  transform: scale(0.9);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.menu-toggle .line {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: var(--transition-bounce);
+}
+
+/* Animación del botón a 'X' */
+.menu-open .menu-toggle {
+  background: rgba(18, 18, 18, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-open .menu-toggle .line-1 {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.menu-open .menu-toggle .line-2 {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* Capa de Superposición del Menú (Overlay) - Estilo Ginivini */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 90;
+  opacity: 0;
+  visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f1ea;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-open .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Contenido del Menú */
+.menu-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--header-height) + 20px) 0 40px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+}
+
+.menu-open .menu-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+/* Carrusel de Destinos Horizontal */
+.menu-carousel-container {
+  width: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  cursor: grab;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  padding: 20px 0;
+}
+
+.menu-carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.menu-carousel-container:active {
+  cursor: grabbing;
+}
+
+.menu-carousel-wrapper {
+  display: flex;
+  gap: 30px;
+  padding: 0 10vw;
+  width: max-content;
+}
+
+/* Tarjetas individuales de destinos en el menú */
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  width: 260px;
+  scroll-snap-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.menu-card-num {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent-gold-dark);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+}
+
+.menu-card-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.menu-card-img-container {
+  width: 100%;
+  height: 380px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #e5e0d8;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.menu-card-img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Efectos Hover y Foco */
+.menu-card:hover .menu-card-img-container,
+.menu-card:focus .menu-card-img-container {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.12);
+}
+
+.menu-card:hover .menu-card-img-container img,
+.menu-card:focus .menu-card-img-container img {
+  transform: scale(1.05);
+}
+
+.menu-card:hover .menu-card-title,
+.menu-card:focus .menu-card-title {
+  color: var(--accent-gold-dark);
+}
+
+/* Pie del Menú */
+.menu-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(18, 18, 18, 0.08);
+  padding: 20px 10vw 0;
+  color: rgba(18, 18, 18, 0.6);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+
+.menu-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-socials a {
+  color: rgba(18, 18, 18, 0.6);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.menu-socials a:hover {
+  color: var(--accent-gold-dark);
+}
+
+/* Ajustes para el botón toggle y logo en modo menú abierto */
+.menu-open .menu-toggle {
+  background: rgba(18, 18, 18, 0.05);
+  border-color: rgba(18, 18, 18, 0.15);
+}
+
+.menu-open .menu-toggle .line {
+  background-color: var(--text-primary) !important;
+}
+
+/* Ocultar el cursor follower dorado en el menú para no estorbar el arrastre */
+.menu-open .touch-follower {
+  opacity: 0;
+}
