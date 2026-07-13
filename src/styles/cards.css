@@ -150,8 +150,30 @@
 
 .active-dest-link {
   align-self: flex-start;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  margin-top: 10px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 15px;
+  background-color: var(--accent-gold);
+  color: #121212 !important;
+  border: none;
+  padding: 10px 24px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(197, 168, 128, 0.25);
+}
+
+.active-dest-link:hover {
+  background-color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+.active-dest-link:active {
+  transform: translateY(0);
 }
 
 /* Controles de Deck (Flechas y Dots) */

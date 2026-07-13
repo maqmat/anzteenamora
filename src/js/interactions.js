@@ -144,6 +144,9 @@ export function initDestinationsDeck() {
       if (locked) {
         isScrollLockActive = true;
         
+        // Snap de seguridad instantáneo al centrado perfecto justo al congelar el viewport
+        section.scrollIntoView({ behavior: 'auto', block: 'start' });
+        
         if (window.innerWidth > 768) {
           document.body.classList.add('destinations-locked');
           document.documentElement.classList.add('destinations-locked');
