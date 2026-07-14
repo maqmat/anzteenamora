@@ -597,12 +597,16 @@ export function initRouter() {
   // Enlazar eventos dinámicos que se destruyen con la recarga del DOM en #app
   function bindDynamicEvents() {
     // 1. Capturar clicks en tarjetas editoriales de la página de inicio
+    // IMPORTANTE: Solo navegamos a detalle si el click es en la tarjeta ACTIVA (.active-card).
+    // Los clicks en tarjetas no-activas son manejados internamente por interactions.js para
+    // cambiar la tarjeta activa del deck, sin navegar a otra página.
     const cards = document.querySelectorAll('.editorial-card');
     cards.forEach(card => {
       card.addEventListener('click', (e) => {
+        if (!card.classList.contains('active-card')) return; // Dejar que interactions.js lo maneje
         e.preventDefault();
         const route = card.getAttribute('data-route');
-        navigate(route, card.id);
+        if (route) navigate(route, card.id);
       });
     });
 

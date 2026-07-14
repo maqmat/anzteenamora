@@ -275,7 +275,7 @@
   line-height: 1.1;
 }
 
-/* Tarjeta Base Editorial */
+/* Tarjeta Base Editorial (contextos fuera del deck) */
 .editorial-card {
   position: relative;
   flex: 0 0 auto;
@@ -287,44 +287,54 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: 24px;
-  
-  /* Variables 3D dinámicas (Coverflow Horizontal) */
-  --tilt: 0deg;
-  --scale: 1;
-  --translateZ: 0px;
-  --translateY: 0px;
-  --translateX: 0px;
-  
-  /* Estado Inicial: Ocultas, desplazadas hacia abajo y metidas en perspectiva */
-  opacity: 0;
-  transform: perspective(1200px) translateY(80px) translateZ(-80px);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-  will-change: transform, opacity;
   z-index: 5;
 }
 
-/* Transición de Entrada 3D activada por IntersectionObserver */
-.destinations-section.destinations-visible .editorial-card {
-  opacity: var(--card-opacity, 1);
-  transform: perspective(1200px) 
-             translateY(var(--translateY)) 
-             translateX(var(--translateX)) 
-             translateZ(var(--translateZ)) 
-             rotateY(var(--tilt)) 
-             scale(var(--scale));
+/* ── Variables del Deck 3D ───────────────────────────────────────────────────
+   Las posiciones son controladas completamente desde JS (updateDeckLayout).
+   El estado inicial es opacity:0 para que las tarjetas sean invisibles
+   hasta que destinations-visible las active. */
+.destinations-deck-container .editorial-card {
+  /* Variables de posición (sobreescritas desde JS) */
+  --tx: 0px;
+  --ty: 0px;
+  --tz: 0px;
+  --sc: 1;
+  --card-opacity: 1;
+
+  /* Estado oculto inicial: las tarjetas empiezan debajo y transparentes */
+  opacity: 0;
+  transform: perspective(1200px) translateY(60px) scale(0.92);
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity  0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s ease;
+  will-change: transform, opacity;
 }
 
-/* Transición ultra-fluida (Coverflow Ready) al navegar entre tarjetas */
-.destinations-section.destinations-visible.coverflow-ready .editorial-card {
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.65s ease, box-shadow 0.4s ease;
+/* ── Entrada: cuando la sección entra en pantalla ───────────────────────────
+   Aplica las posiciones calculadas por JS via variables CSS. */
+.destinations-section.destinations-visible .destinations-deck-container .editorial-card {
+  opacity: var(--card-opacity, 1);
+  transform: perspective(1200px)
+             translateX(var(--tx))
+             translateY(var(--ty))
+             translateZ(var(--tz))
+             scale(var(--sc));
+}
+
+/* ── Coverflow Ready: transición rápida al navegar ──────────────────────────*/
+.destinations-section.destinations-visible.coverflow-ready .destinations-deck-container .editorial-card {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity  0.65s ease,
+              box-shadow 0.4s ease;
   transition-delay: 0s !important;
 }
 
-/* Efecto escalonado (Stagger) para cada tarjeta */
-.destinations-section.destinations-visible .editorial-card:nth-child(1) { transition-delay: 0.05s; }
-.destinations-section.destinations-visible .editorial-card:nth-child(2) { transition-delay: 0.22s; }
-.destinations-section.destinations-visible .editorial-card:nth-child(3) { transition-delay: 0.38s; }
-.destinations-section.destinations-visible .editorial-card:nth-child(4) { transition-delay: 0.55s; }
+/* ── Stagger de entrada (escalonado) ────────────────────────────────────────*/
+.destinations-section.destinations-visible .destinations-deck-container .editorial-card:nth-child(1) { transition-delay: 0.05s; }
+.destinations-section.destinations-visible .destinations-deck-container .editorial-card:nth-child(2) { transition-delay: 0.20s; }
+.destinations-section.destinations-visible .destinations-deck-container .editorial-card:nth-child(3) { transition-delay: 0.35s; }
+.destinations-section.destinations-visible .destinations-deck-container .editorial-card:nth-child(4) { transition-delay: 0.50s; }
 
 /* Sombra y respuesta táctil */
 .editorial-card:active {
@@ -495,18 +505,20 @@
   }
   
   .destinations-deck-wrapper {
-    flex: 1;
+    flex: 1 1 auto;
     width: 100%;
-    height: auto;
-    min-height: 220px;
+    min-height: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
   }
   
   .destinations-deck-container {
+    width: 200px;
     max-width: 200px;
-    height: 250px;
+    height: 260px;
+    flex-shrink: 0;
   }
   
   .destinations-deck-container .card-title {
@@ -540,17 +552,10 @@
     line-height: 1.3;
     max-width: 290px;
   }
-  .active-dest-link {
-    margin-top: 2px;
-    padding: 6px 16px;
-    font-size: 0.75rem;
-  }
-  .destinations-deck-wrapper {
-    min-height: 180px;
-  }
   .destinations-deck-container {
-    max-width: 170px;
-    height: 210px;
+    width: 165px;
+    max-width: 165px;
+    height: 215px;
   }
   .destinations-deck-container .card-title {
     font-size: 1.25rem;
@@ -816,16 +821,17 @@
   display: none;
 }
 
-/* Ocultar secciones adyacentes al congelar destinos para prevenir fisuras blancas (subpixel gaps) */
+/* Cuando el lock de destinos está activo, la hoja de fondo del HTML/body es #0b0b0b
+   (definido en global.css), así cualquier micro-gap se verá negro, no blanco. */
 body.destinations-locked .hero-section,
 body.destinations-locked .intro-section,
 body.destinations-locked .experiences-section {
-  opacity: 0 !important;
-  pointer-events: none !important;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.hero-section,
-.intro-section,
-.experiences-section {
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+body:not(.destinations-locked) .hero-section,
+body:not(.destinations-locked) .intro-section,
+body:not(.destinations-locked) .experiences-section {
+  visibility: visible;
 }
