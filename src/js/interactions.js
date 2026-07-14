@@ -137,30 +137,34 @@ export function initDestinationsDeck() {
         card.style.setProperty('--tx', '0px');
         card.style.setProperty('--ty', '0px');
         card.style.setProperty('--tz', '0px');
+        card.style.setProperty('--rz', '0deg');
         card.style.setProperty('--sc', '1');
         card.style.setProperty('--card-opacity', '1');
         card.style.zIndex = '10';
         card.style.pointerEvents = 'auto';
       } else if (diff < 0) {
-        // Tarjetas anteriores: ocultas arriba
+        // Tarjetas anteriores: ocultas arriba con rotación de descarte dinámico
         card.classList.add('prev-card');
         card.style.setProperty('--tx', '0px');
         card.style.setProperty('--ty', '-110%');
         card.style.setProperty('--tz', '0px');
+        card.style.setProperty('--rz', '-8deg');
         card.style.setProperty('--sc', '0.85');
         card.style.setProperty('--card-opacity', '0');
         card.style.zIndex = '1';
         card.style.pointerEvents = 'none';
       } else {
-        // Tarjetas siguientes: apiladas detrás, ligeramente abajo
+        // Tarjetas siguientes: apiladas detrás, ligeramente abajo y abanicadas (fanning effect)
         card.classList.add('next-card');
         const offset    = diff * 14;          // px desplazamiento vertical
         const scale     = 1 - diff * 0.04;   // escala decreciente
         const tz        = -diff * 30;         // profundidad en Z
+        const rz        = diff * -1.8;        // ángulo de abanico sutil (Awwwards design)
 
         card.style.setProperty('--tx', '0px');
         card.style.setProperty('--ty', `${offset}px`);
         card.style.setProperty('--tz', `${tz}px`);
+        card.style.setProperty('--rz', `${rz}deg`);
         card.style.setProperty('--sc', `${scale}`);
         card.style.setProperty('--card-opacity',
           diff === 1 ? '0.9' : diff === 2 ? '0.6' : '0.0');

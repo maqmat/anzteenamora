@@ -242,21 +242,49 @@
   border-color: rgba(197, 168, 128, 0.25);
 }
 
+.destinations-deck-container .editorial-card.active-card:hover {
+  transform: perspective(1200px)
+             translateX(var(--tx))
+             translateY(calc(var(--ty) - 8px))
+             translateZ(calc(var(--tz) + 25px))
+             rotateZ(var(--rz))
+             rotateY(3deg)
+             scale(calc(var(--sc) * 1.02));
+  box-shadow: 0 45px 85px rgba(0, 0, 0, 0.65), inset 0 0 0 1px rgba(255, 255, 255, 0.2), 0 0 50px rgba(197, 168, 128, 0.2);
+  border-color: rgba(197, 168, 128, 0.4);
+}
+
 .destinations-deck-container .editorial-card:hover {
   border-color: rgba(197, 168, 128, 0.4);
   box-shadow: 0 35px 75px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
 
-/* Asegurar el protagonismo de las imágenes en las tarjetas */
+/* Asegurar el protagonismo de las imágenes en las tarjetas con efecto parallax Awwwards */
 .destinations-deck-container .card-media img {
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
   object-fit: cover;
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  position: absolute;
+  top: -5%;
+  left: -5%;
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.destinations-deck-container .editorial-card:hover .card-media img {
-  transform: scale(1.06);
+/* Parallax sutil basado en el estado de la tarjeta */
+.destinations-deck-container .editorial-card.active-card .card-media img {
+  transform: scale(1.02) translateY(0);
+}
+
+.destinations-deck-container .editorial-card.next-card .card-media img {
+  transform: scale(1.08) translateY(12px);
+}
+
+.destinations-deck-container .editorial-card.prev-card .card-media img {
+  transform: scale(1.08) translateY(-12px);
+}
+
+.destinations-deck-container .editorial-card.active-card:hover .card-media img {
+  transform: scale(1.06) translateY(-4px);
 }
 
 .destinations-deck-container .card-content {
@@ -331,6 +359,7 @@
   --tx: 0px;
   --ty: 0px;
   --tz: 0px;
+  --rz: 0deg;
   --sc: 1;
   --card-opacity: 1;
 
@@ -351,6 +380,7 @@
              translateX(var(--tx))
              translateY(var(--ty))
              translateZ(var(--tz))
+             rotateZ(var(--rz))
              scale(var(--sc));
 }
 
