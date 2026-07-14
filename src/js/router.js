@@ -39,7 +39,7 @@ const DESTINATIONS = {
   lecheria: {
     title: 'Lechería',
     category: 'Ciudad Turística',
-    image: '/src/assets/images/lecheria.png',
+    image: '/src/assets/images/lecheria.jpg',
     intro: '<strong>Lechería</strong> es la cara moderna de Anzoátegui. Famosa por su complejo turístico de canales navegables que asemeja una Venecia tropical, es el epicentro gastronómico, comercial y residencial del estado. Custodiada por el Cerro El Morro, ofrece atardeceres de ensueño, playas activas para el kitesurf y una vibrante vida nocturna.',
     info: {
       temp: '26°C - 32°C',

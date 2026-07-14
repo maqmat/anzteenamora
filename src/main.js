@@ -51,7 +51,23 @@ function initPreloader() {
       if (video) {
         video.play().catch(() => {});
       }
+      // Pre-cargar imágenes en background para navegación instantánea
+      preloadDetailImages();
     }, 450); // Pausa elegante para que el usuario sienta la llegada a 100%
+  };
+
+  // Pre-cargar imágenes de detalles
+  const preloadDetailImages = () => {
+    const imagesToPreload = [
+      '/src/assets/images/mochima.webp',
+      '/src/assets/images/lecheria.jpg',
+      '/src/assets/images/barcelona.webp',
+      '/src/assets/images/guanta.webp'
+    ];
+    imagesToPreload.forEach(src => {
+      const img = new Image();
+      img.src = src;
+    });
   };
 
   // Escuchar cuando la página esté lista
