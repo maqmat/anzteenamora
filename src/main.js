@@ -59,10 +59,10 @@ function initPreloader() {
   // Pre-cargar imágenes de detalles
   const preloadDetailImages = () => {
     const imagesToPreload = [
-      '/src/assets/images/mochima.webp',
-      '/src/assets/images/lecheria.jpg',
-      '/src/assets/images/barcelona.webp',
-      '/src/assets/images/guanta.webp'
+      '/images/mochima.jpg',
+      '/images/lecheria.jpg',
+      '/images/barcelona.jpg',
+      '/images/guanta.jpg'
     ];
     imagesToPreload.forEach(src => {
       const img = new Image();

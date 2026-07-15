@@ -10,7 +10,7 @@ const DESTINATIONS = {
   mochima: {
     title: 'Mochima',
     category: 'Parque Nacional',
-    image: '/src/assets/images/mochima.webp',
+    image: '/images/mochima.jpg',
     intro: 'El <strong>Parque Nacional Mochima</strong> es un santuario marino compartido entre Anzoátegui y Sucre. Sus aguas cristalinas de tonalidades turquesa, arenas blancas y archipiélagos vírgenes ofrecen un refugio inigualable para la vida marina, incluyendo delfines y corales exóticos. Es un paraíso para el snorkel, el buceo y la desconexión total.',
     info: {
       temp: '27°C - 31°C',
@@ -39,7 +39,7 @@ const DESTINATIONS = {
   lecheria: {
     title: 'Lechería',
     category: 'Ciudad Turística',
-    image: '/src/assets/images/lecheria.jpg',
+    image: '/images/lecheria.jpg',
     intro: '<strong>Lechería</strong> es la cara moderna de Anzoátegui. Famosa por su complejo turístico de canales navegables que asemeja una Venecia tropical, es el epicentro gastronómico, comercial y residencial del estado. Custodiada por el Cerro El Morro, ofrece atardeceres de ensueño, playas activas para el kitesurf y una vibrante vida nocturna.',
     info: {
       temp: '26°C - 32°C',
@@ -94,7 +94,7 @@ const DESTINATIONS = {
   barcelona: {
     title: 'Barcelona',
     category: 'Casco Histórico',
-    image: '/src/assets/images/barcelona.webp',
+    image: '/images/barcelona.jpg',
     intro: 'La histórica capital, <strong>Barcelona</strong>, resguarda la herencia colonial de Anzoátegui. Fundada en 1671, sus calles empedradas, iglesias históricas y plazas evocan el pasado independentista del país. Es un paseo cultural obligatorio para quienes desean entender el origen del mestizaje, el arte sacro y la arquitectura neoclásica oriental.',
     info: {
       temp: '25°C - 33°C',
@@ -123,7 +123,7 @@ const DESTINATIONS = {
   guanta: {
     title: 'Guanta',
     category: 'Belleza Natural',
-    image: '/src/assets/images/guanta.webp',
+    image: '/images/guanta.jpg',
     intro: '<strong>Guanta</strong> es el secreto verde de Anzoátegui. Encajonada entre montañas cubiertas de selva y el Mar Caribe, ofrece un contraste único entre la frescura de sus pozas de agua dulce y sus bahías tranquilas. Aquí la selva tropical se encuentra directamente con la playa, creando ecosistemas fascinantes.',
     info: {
       temp: '24°C - 30°C',
@@ -545,19 +545,13 @@ export function initRouter() {
       }
 
       // 2. Iniciar la transición nativa
-      const transition = document.startViewTransition(async () => {
+      const transition = document.startViewTransition(() => {
         app.innerHTML = route.render();
         document.title = route.title;
         
-        // Quitar la clase de snap scroll y forzar reflow para evitar comportamiento de scroll suave
+        // Quitar la clase de snap scroll y resetear posición del scroll instantáneamente
         document.documentElement.classList.remove('snap-scroll-enabled');
-        void document.documentElement.offsetHeight;
-        
-        // Resetear posición del scroll instantáneamente
-        window.scrollTo({ top: 0, behavior: 'instant' });
-        
-        // Esperar frames de renderizado para asegurar que el navegador actualice la posición en (0, 0)
-        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+        window.scrollTo(0, 0);
         
         // 3. Asignar view-transition-name a los elementos destino
         const destImage = document.querySelector('.detail-hero-media');
