@@ -151,6 +151,150 @@ const DESTINATIONS = {
   }
 };
 
+// Base de datos de Experiencias Inolvidables
+const EXPERIENCES = [
+  // AVENTURA
+  {
+    type: 'aventura',
+    category: 'El Morro',
+    title: 'Vuelo en Parapente',
+    desc: 'Despega desde la cima del cerro El Morro y planea sobre el Caribe para aterrizar directamente en Playa Cangrejo al atardecer.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'aventura',
+    category: 'Mochima',
+    title: 'Snorkel en La Piscina',
+    desc: 'Sumérgete en una piscina natural de aguas cristalinas en medio del mar, rodeado de corales y peces exóticos.',
+    image: '/images/mochima.jpg'
+  },
+  {
+    type: 'aventura',
+    category: 'Guanta',
+    title: 'Canyoning en las Cuevas',
+    desc: 'Explora senderos selváticos, salta a pozos de agua cristalina y haz rápel dentro de cuevas con ríos subterráneos.',
+    image: '/images/guanta.jpg'
+  },
+  {
+    type: 'aventura',
+    category: 'Mochima',
+    title: 'Paseo en Catamarán al Faro',
+    desc: 'Alquila un catamarán de diseño para pasar el día fondeado en la bahía de Isla El Faro, con tablas de paddle board privadas.',
+    image: '/images/mochima.jpg'
+  },
+
+  // GASTRONOMÍA
+  {
+    type: 'gastronomia',
+    category: 'Lechería',
+    title: 'Beijing Restaurant',
+    desc: 'Degusta la gastronomía asiática de autor más exclusiva de la región en un ambiente sofisticado y de diseño único.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'gastronomia',
+    category: 'Lechería',
+    title: '212 Restaurant & Bistro',
+    desc: 'Una de las experiencias culinarias más exclusivas y chic de Lechería, con platos fusión y coctelería premium de alto nivel.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'gastronomia',
+    category: 'Paseo Colón',
+    title: 'Marisquerías del Ferry',
+    desc: 'Disfruta del auténtico pescado frito oriental y cazuelas de mariscos recién capturados a orillas de la bahía.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'gastronomia',
+    category: 'Lechería',
+    title: 'Café de Especialidad',
+    desc: 'Un recorrido por locales con diseños minimalistas y barismo de alta gama que sirven granos venezolanos seleccionados.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'gastronomia',
+    category: 'Lechería',
+    title: 'Rooftops en El Morro',
+    desc: 'Disfruta de cocteles de autor inspirados en frutas tropicales con espectaculares vistas de 360° a la bahía de Lechería.',
+    image: '/images/lecheria.jpg'
+  },
+
+  // HISTORIA
+  {
+    type: 'historia',
+    category: 'El Morro',
+    title: 'Fortín de la Magdalena',
+    desc: 'Sube a las ruinas del fortín colonial español en el cerro para contemplar el atardecer entre cañones antiguos y acantilados.',
+    image: '/images/lecheria.jpg'
+  },
+  {
+    type: 'historia',
+    category: 'Barcelona',
+    title: 'Ruinas de la Casa Fuerte',
+    desc: 'Camina entre las imponentes ruinas neoclásicas del siglo XVIII, donde árboles centenarios crecen entre paredes coloniales.',
+    image: '/images/barcelona.jpg'
+  },
+  {
+    type: 'historia',
+    category: 'Barcelona',
+    title: 'Catedral de Barcelona',
+    desc: 'Visita el templo y contempla el santuario de San Celestino, uno de los pocos cuerpos incorruptos de mártires romanos en América.',
+    image: '/images/barcelona.jpg'
+  },
+  {
+    type: 'historia',
+    category: 'Clarines',
+    title: 'Casco Colonial de Clarines',
+    desc: 'Recorre calles empedradas de casonas coloridas y visita la majestuosa Iglesia de San Antonio de Padua, joya del barroco.',
+    image: '/images/barcelona.jpg'
+  },
+  {
+    type: 'historia',
+    category: 'Barcelona',
+    title: 'Ermita de El Carmen',
+    desc: 'Visita esta mística iglesia construida con una arquitectura gótica simplificada que destaca en el paisaje tropical de la ciudad.',
+    image: '/images/barcelona.jpg'
+  },
+
+  // NATURALEZA
+  {
+    type: 'naturaleza',
+    category: 'Mochima',
+    title: 'Avistamiento de Delfines',
+    desc: 'Navega a primera hora de la mañana para acompañar a manadas de delfines silvestres que saltan al lado del bote en mar abierto.',
+    image: '/images/mochima.jpg'
+  },
+  {
+    type: 'naturaleza',
+    category: 'Boca de Uchire',
+    title: 'Flamencos en Laguna de Unare',
+    desc: 'Navega en peñero por la laguna de Unare al amanecer para presenciar miles de flamencos teñir el paisaje de color rosa.',
+    image: '/images/guanta.jpg'
+  },
+  {
+    type: 'naturaleza',
+    category: 'Mochima',
+    title: 'Mirador de Isla El Faro',
+    desc: 'Camina por el sendero empinado de la isla hasta la cima del faro para lograr la panorámica más espectacular del parque nacional.',
+    image: '/images/mochima.jpg'
+  },
+  {
+    type: 'naturaleza',
+    category: 'Guanta',
+    title: 'Cascada Siete Pisos',
+    desc: 'Una caminata de aventura por la selva tropical húmeda que te lleva a descubrir una serie de pozas de agua fría de montaña.',
+    image: '/images/guanta.jpg'
+  },
+  {
+    type: 'naturaleza',
+    category: 'Mochima',
+    title: 'Playa Varadero',
+    desc: 'Relájate en una de las playas más escondidas y exclusivas, famosa por sus aguas turquesa mansas, arena fina y calma total.',
+    image: '/images/mochima.jpg'
+  }
+];
+
 // Plantilla de la Página de Inicio (Home)
 function getHomeHTML() {
   return `
@@ -343,83 +487,19 @@ function getHomeHTML() {
       </div>
 
       <div class="experiences-grid">
-        <!-- Experiencia 1: Aventura -->
-        <div class="experience-item-card reveal-fade-up" data-activity-type="aventura">
-          <div class="exp-card-image">
-            <img src="/images/mochima.jpg" alt="Snorkel en Isla de Plata" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
+        ${EXPERIENCES.map((exp, index) => `
+          <div class="experience-item-card reveal-fade-up ${index % 4 !== 0 ? 'delay-' + (index % 4) : ''}" data-activity-type="${exp.type}">
+            <div class="exp-card-image">
+              <img src="${exp.image}" alt="${exp.title}" loading="lazy" />
+              <button class="exp-badge-btn" data-filter="${exp.type}">${exp.type.charAt(0).toUpperCase() + exp.type.slice(1)}</button>
+            </div>
+            <div class="exp-card-info">
+              <span class="exp-category">${exp.category}</span>
+              <h3 class="exp-card-title">${exp.title}</h3>
+              <p class="exp-card-desc">${exp.desc}</p>
+            </div>
           </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Mochima</span>
-            <h3 class="exp-card-title">Snorkel en Isla de Plata</h3>
-            <p class="exp-card-desc">Explora arrecifes de coral y nada junto a peces exóticos en las aguas más tranquilas del Parque Nacional.</p>
-          </div>
-        </div>
-
-        <!-- Experiencia 2: Historia -->
-        <div class="experience-item-card reveal-fade-up delay-1" data-activity-type="historia">
-          <div class="exp-card-image">
-            <img src="/images/barcelona.jpg" alt="Ruta Colonial de Barcelona" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="historia">Historia</button>
-          </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Barcelona</span>
-            <h3 class="exp-card-title">Ruta Colonial de Barcelona</h3>
-            <p class="exp-card-desc">Descubre la Casa de la Fuerte, la Catedral de San Cristóbal y las leyendas de la época colonial.</p>
-          </div>
-        </div>
-
-        <!-- Experiencia 3: Aventura -->
-        <div class="experience-item-card reveal-fade-up delay-2" data-activity-type="aventura">
-          <div class="exp-card-image">
-            <img src="/images/lecheria.jpg" alt="Sunset Kayak en El Morro" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
-          </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Lechería</span>
-            <h3 class="exp-card-title">Sunset Kayak en El Morro</h3>
-            <p class="exp-card-desc">Navega en kayak bordeando los acantilados del Cerro El Morro mientras el sol tiñe el Caribe de dorado.</p>
-          </div>
-        </div>
-
-        <!-- Experiencia 4: Naturaleza -->
-        <div class="experience-item-card reveal-fade-up delay-3" data-activity-type="naturaleza">
-          <div class="exp-card-image">
-            <img src="/images/guanta.jpg" alt="Sendero de los Siete Pisos" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
-          </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Guanta</span>
-            <h3 class="exp-card-title">Sendero de los Siete Pisos</h3>
-            <p class="exp-card-desc">Camina a través de la selva tropical húmeda hasta toparte con las pozas y caídas de agua de las cascadas de Guanta.</p>
-          </div>
-        </div>
-
-        <!-- Experiencia 5: Gastronomía -->
-        <div class="experience-item-card reveal-fade-up delay-4" data-activity-type="gastronomia">
-          <div class="exp-card-image">
-            <img src="/images/lecheria.jpg" alt="Cena en Canales de Lechería" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="gastronomia">Gastronomía</button>
-          </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Lechería</span>
-            <h3 class="exp-card-title">Cena en Canales de Lechería</h3>
-            <p class="exp-card-desc">Vive una velada exclusiva en restaurantes de autor ubicados a la orilla de los icónicos canales navegables.</p>
-          </div>
-        </div>
-
-        <!-- Experiencia 6: Naturaleza -->
-        <div class="experience-item-card reveal-fade-up delay-5" data-activity-type="naturaleza">
-          <div class="exp-card-image">
-            <img src="/images/mochima.jpg" alt="Avistamiento de Delfines" loading="lazy" />
-            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
-          </div>
-          <div class="exp-card-info">
-            <span class="exp-category">Mochima</span>
-            <h3 class="exp-card-title">Avistamiento de Delfines</h3>
-            <p class="exp-card-desc">Navega en lancha hacia las islas más alejadas del parque nacional y déjate acompañar por simpáticos delfines salvajes.</p>
-          </div>
-        </div>
+        `).join('')}
       </div>
     </section>
   `;
