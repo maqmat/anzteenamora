@@ -853,39 +853,106 @@
   color: var(--accent-gold);
 }
 
-/* Píldoras de Filtro estilo Visit Singapore */
-.activities-filter-pills {
+/* Nuevos Botones de Categoría del Filtro de Experiencias */
+.experience-category-buttons-grid {
   width: 90%;
-  margin: 15px auto 35px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  gap: 10px;
+  max-width: 1200px;
+  margin: 25px auto 45px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
 }
 
-.act-filter-pill {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 8px 18px;
-  border-radius: 30px;
-  border: 1px solid var(--text-primary);
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
+.category-btn {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
   cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-primary);
+  outline: none;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.category-btn-icon {
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.category-btn-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  pointer-events: none;
+}
+
+.category-btn-title {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.category-btn-desc {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
 }
 
 /* Hover */
-.act-filter-pill:hover {
-  background-color: rgba(18, 18, 18, 0.05);
+.category-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Pill activa: Fondo oscuro, letras claras (Estilo Visit Singapore) */
-.act-filter-pill.active {
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
+.category-btn:hover .category-btn-icon {
+  background: var(--accent-gold);
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Active State */
+.category-btn.active {
+  background: var(--text-primary);
   border-color: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+.category-btn.active .category-btn-title {
+  color: var(--bg-primary);
+}
+
+.category-btn.active .category-btn-desc {
+  color: var(--bg-primary);
+  opacity: 0.8;
+}
+
+.category-btn.active .category-btn-icon {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .experience-category-buttons-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 /* Transiciones para filtrado en la grilla de actividades */

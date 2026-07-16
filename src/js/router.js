@@ -307,13 +307,47 @@ function getHomeHTML() {
         <h2 class="section-title">Experiencias inolvidables</h2>
       </div>
 
-      <!-- Filtros Activos estilo Visit Singapore -->
-      <div class="activities-filter-pills reveal-fade-up delay-1">
-        <button class="act-filter-pill active" data-filter="all">Todo</button>
-        <button class="act-filter-pill" data-filter="aventura">Aventura</button>
-        <button class="act-filter-pill" data-filter="gastronomia">Gastronomía</button>
-        <button class="act-filter-pill" data-filter="historia">Historia</button>
-        <button class="act-filter-pill" data-filter="naturaleza">Naturaleza</button>
+      <!-- Botones de las Etiquetas (Categorías) Bien Bonitos -->
+      <div class="experience-category-buttons-grid reveal-fade-up delay-1">
+        <button class="category-btn active" data-filter="all">
+          <div class="category-btn-icon">✨</div>
+          <div class="category-btn-content">
+            <span class="category-btn-title">Todo</span>
+            <span class="category-btn-desc">Ver todas las experiencias</span>
+          </div>
+        </button>
+        
+        <button class="category-btn" data-filter="aventura">
+          <div class="category-btn-icon">⛵</div>
+          <div class="category-btn-content">
+            <span class="category-btn-title">Aventura</span>
+            <span class="category-btn-desc">Kayak, snorkel y paseos</span>
+          </div>
+        </button>
+
+        <button class="category-btn" data-filter="gastronomia">
+          <div class="category-btn-icon">🍽️</div>
+          <div class="category-btn-content">
+            <span class="category-btn-title">Gastronomía</span>
+            <span class="category-btn-desc">Restaurantes y sabores locales</span>
+          </div>
+        </button>
+
+        <button class="category-btn" data-filter="historia">
+          <div class="category-btn-icon">🏛️</div>
+          <div class="category-btn-content">
+            <span class="category-btn-title">Historia</span>
+            <span class="category-btn-desc">Casco colonial y templos</span>
+          </div>
+        </button>
+
+        <button class="category-btn" data-filter="naturaleza">
+          <div class="category-btn-icon">🌴</div>
+          <div class="category-btn-content">
+            <span class="category-btn-title">Naturaleza</span>
+            <span class="category-btn-desc">Playas, delfines y cascadas</span>
+          </div>
+        </button>
       </div>
 
       <div class="experiences-grid">
@@ -639,17 +673,17 @@ export function initRouter() {
       });
     });
 
-    // 3. Controlar Filtros de Actividades en el Inicio (Estilo Visit Singapore)
-    const actFilterPills = document.querySelectorAll('.act-filter-pill');
+    // 3. Controlar Filtros de Actividades en el Inicio con los nuevos Botones de Categorías
+    const categoryBtns = document.querySelectorAll('.category-btn');
     const actCards = document.querySelectorAll('.experience-item-card');
 
-    actFilterPills.forEach(pill => {
-      pill.addEventListener('click', () => {
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
         // Alternar clase active en los botones
-        actFilterPills.forEach(p => p.classList.remove('active'));
-        pill.classList.add('active');
+        categoryBtns.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
 
-        const filter = pill.getAttribute('data-filter');
+        const filter = btn.getAttribute('data-filter');
 
         actCards.forEach(card => {
           const type = card.getAttribute('data-activity-type');
@@ -659,22 +693,26 @@ export function initRouter() {
             card.classList.add('hidden-activity');
           }
         });
+
+        // Hacer scroll suave hacia las tarjetas filtradas si no es "Todo"
+        if (filter !== 'all') {
+          const grid = document.querySelector('.experiences-grid');
+          if (grid) {
+            grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
       });
     });
 
-    // 4. Controlar Filtros de Actividades al pulsar los botones de etiquetas
+    // 4. Controlar Filtros de Actividades al pulsar los botones de etiquetas en las tarjetas
     const expBadgeBtns = document.querySelectorAll('.exp-badge-btn');
     expBadgeBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
         const filterVal = btn.getAttribute('data-filter');
-        const matchingPill = Array.from(actFilterPills).find(pill => pill.getAttribute('data-filter') === filterVal);
-        if (matchingPill) {
-          matchingPill.click();
-          const section = document.querySelector('.experiences-section');
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
+        const matchingBtn = Array.from(categoryBtns).find(cb => cb.getAttribute('data-filter') === filterVal);
+        if (matchingBtn) {
+          matchingBtn.click();
         }
       });
     });
