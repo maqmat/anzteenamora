@@ -771,8 +771,17 @@ export function initRouter() {
           }
         });
 
-        // Hacer scroll suave hacia las tarjetas filtradas en la parte inferior
+        // Resetear posición de scroll y barra de progreso al cambiar de filtro
         const grid = document.querySelector('.experiences-grid');
+        const progressBar = document.querySelector('.experiences-scroll-progress-bar');
+        if (grid) {
+          grid.scrollLeft = 0;
+        }
+        if (progressBar) {
+          progressBar.style.left = '0%';
+        }
+
+        // Hacer scroll suave hacia las tarjetas filtradas en la parte inferior
         if (grid) {
           grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }

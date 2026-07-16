@@ -769,24 +769,25 @@
 /* Indicador de Progreso del Scroll en Mobile */
 .experiences-scroll-progress-container {
   display: none;
-  width: 120px;
-  height: 3px;
-  background: rgba(0, 0, 0, 0.08);
-  margin: 10px auto 0;
-  border-radius: 3px;
+  width: 140px;
+  height: 6px;
+  background: rgba(0, 0, 0, 0.12);
+  margin: 25px auto 15px;
+  border-radius: 10px;
   position: relative;
   overflow: hidden;
+  z-index: 10;
 }
 
 .experiences-scroll-progress-bar {
   width: 30%;
   height: 100%;
   background: var(--accent-gold);
-  border-radius: 3px;
+  border-radius: 10px;
   position: absolute;
   left: 0;
   top: 0;
-  transition: left 0.1s ease;
+  transition: left 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
