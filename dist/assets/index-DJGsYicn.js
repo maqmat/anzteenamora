@@ -154,7 +154,7 @@
 
       <!-- Filtros Activos estilo Visit Singapore -->
       <div class="activities-filter-pills reveal-fade-up delay-1">
-        <button class="act-filter-pill active" data-filter="all">Unique Experiences</button>
+        <button class="act-filter-pill active" data-filter="all">Todo</button>
         <button class="act-filter-pill" data-filter="aventura">Aventura</button>
         <button class="act-filter-pill" data-filter="gastronomia">Gastronomía</button>
         <button class="act-filter-pill" data-filter="historia">Historia</button>
@@ -162,69 +162,81 @@
       </div>
 
       <div class="experiences-grid">
+        <!-- Experiencia 1: Aventura -->
         <div class="experience-item-card reveal-fade-up" data-activity-type="aventura">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/mochima.jpg" alt="Snorkel en Isla de Plata" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Mochima</span>
+            <h3 class="exp-card-title">Snorkel en Isla de Plata</h3>
+            <p class="exp-card-desc">Explora arrecifes de coral y nada junto a peces exóticos en las aguas más tranquilas del Parque Nacional.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-1" data-activity-type="naturaleza">
+        <!-- Experiencia 2: Historia -->
+        <div class="experience-item-card reveal-fade-up delay-1" data-activity-type="historia">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/barcelona.jpg" alt="Ruta Colonial de Barcelona" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="historia">Historia</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Barcelona</span>
+            <h3 class="exp-card-title">Ruta Colonial de Barcelona</h3>
+            <p class="exp-card-desc">Descubre la Casa de la Fuerte, la Catedral de San Cristóbal y las leyendas de la época colonial.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-2" data-activity-type="gastronomia">
+        <!-- Experiencia 3: Aventura -->
+        <div class="experience-item-card reveal-fade-up delay-2" data-activity-type="aventura">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/lecheria.jpg" alt="Sunset Kayak en El Morro" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Lechería</span>
+            <h3 class="exp-card-title">Sunset Kayak en El Morro</h3>
+            <p class="exp-card-desc">Navega en kayak bordeando los acantilados del Cerro El Morro mientras el sol tiñe el Caribe de dorado.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-3" data-activity-type="historia">
+        <!-- Experiencia 4: Naturaleza -->
+        <div class="experience-item-card reveal-fade-up delay-3" data-activity-type="naturaleza">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/guanta.jpg" alt="Sendero de los Siete Pisos" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Guanta</span>
+            <h3 class="exp-card-title">Sendero de los Siete Pisos</h3>
+            <p class="exp-card-desc">Camina a través de la selva tropical húmeda hasta toparte con las pozas y caídas de agua de las cascadas de Guanta.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-4" data-activity-type="aventura">
+        <!-- Experiencia 5: Gastronomía -->
+        <div class="experience-item-card reveal-fade-up delay-4" data-activity-type="gastronomia">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/lecheria.jpg" alt="Cena en Canales de Lechería" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="gastronomia">Gastronomía</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Lechería</span>
+            <h3 class="exp-card-title">Cena en Canales de Lechería</h3>
+            <p class="exp-card-desc">Vive una velada exclusiva en restaurantes de autor ubicados a la orilla de los icónicos canales navegables.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-5" data-activity-type="gastronomia">
+        <!-- Experiencia 6: Naturaleza -->
+        <div class="experience-item-card reveal-fade-up delay-5" data-activity-type="naturaleza">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/mochima.jpg" alt="Avistamiento de Delfines" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Mochima</span>
+            <h3 class="exp-card-title">Avistamiento de Delfines</h3>
+            <p class="exp-card-desc">Navega en lancha hacia las islas más alejadas del parque nacional y déjate acompañar por simpáticos delfines salvajes.</p>
           </div>
         </div>
       </div>
@@ -308,4 +320,4 @@
 
       </div>
     </div>
-  `}function s(){let e=document.getElementById(`app`);window.routerNavigate=c;let i={"/":{render:()=>a(),title:`Anzoátegui Te Enamora`},"/mochima":{render:()=>o(`mochima`),title:`Mochima | Anzoátegui Te Enamora`},"/lecheria":{render:()=>o(`lecheria`),title:`Lechería | Anzoátegui Te Enamora`},"/barcelona":{render:()=>o(`barcelona`),title:`Barcelona | Anzoátegui Te Enamora`},"/guanta":{render:()=>o(`guanta`),title:`Guanta | Anzoátegui Te Enamora`}},s=!0;async function c(t,n=null){let r=i[t]||i[`/`];window.unlockDestinationsDeck&&window.unlockDestinationsDeck(),document.documentElement.classList.remove(`destinations-locked`),document.body.classList.remove(`destinations-locked`),t===`/`?document.documentElement.classList.add(`snap-scroll-enabled`):document.documentElement.classList.remove(`snap-scroll-enabled`);let a=document.getElementById(`logo-link`),o=document.getElementById(`header-back-btn`);if(t===`/`?(a&&a.classList.remove(`hidden`),o&&o.classList.add(`hidden`)):(a&&a.classList.add(`hidden`),o&&o.classList.remove(`hidden`)),s)s=!1,e.innerHTML=r.render(),document.title=r.title,l();else if(document.startViewTransition){let t=null,i=null;if(n){let e=document.getElementById(n);e&&(t=e.querySelector(`.card-media img`),i=e.querySelector(`.card-title`),t&&(t.style.viewTransitionName=`shared-hero-media`),i&&(i.style.viewTransitionName=`shared-hero-title`))}await document.startViewTransition(()=>{e.innerHTML=r.render(),document.title=r.title,document.documentElement.classList.remove(`snap-scroll-enabled`),window.scrollTo(0,0);let t=document.querySelector(`.detail-hero-media`),n=document.getElementById(`detail-hero-title`);t&&(t.style.viewTransitionName=`shared-hero-media`),n&&(n.style.viewTransitionName=`shared-hero-title`),l()}).finished,t&&(t.style.viewTransitionName=``),i&&(i.style.viewTransitionName=``);let a=document.querySelector(`.detail-hero-media`),o=document.getElementById(`detail-hero-title`);a&&(a.style.viewTransitionName=``),o&&(o.style.viewTransitionName=``)}else e.innerHTML=r.render(),document.title=r.title,window.scrollTo(0,0),l();window.location.pathname!==t&&window.history.pushState({path:t},``,t)}function l(){document.querySelectorAll(`.editorial-card`).forEach(e=>{e.addEventListener(`click`,t=>{if(!e.classList.contains(`active-card`))return;t.preventDefault();let n=e.getAttribute(`data-route`);n&&c(n,e.id)})});let e=document.querySelectorAll(`.filter-pill`),i=document.querySelectorAll(`.highlight-item`);e.forEach(t=>{t.addEventListener(`click`,()=>{e.forEach(e=>e.classList.remove(`active`)),t.classList.add(`active`);let n=t.getAttribute(`data-filter`);i.forEach(e=>{let t=e.getAttribute(`data-experience`);n===`all`||t===n?e.classList.remove(`hidden-filter`):e.classList.add(`hidden-filter`)})})});let a=document.querySelectorAll(`.act-filter-pill`),o=document.querySelectorAll(`.experience-item-card`);a.forEach(e=>{e.addEventListener(`click`,()=>{a.forEach(e=>e.classList.remove(`active`)),e.classList.add(`active`);let t=e.getAttribute(`data-filter`);o.forEach(e=>{let n=e.getAttribute(`data-activity-type`);t===`all`||n===t?e.classList.remove(`hidden-activity`):e.classList.add(`hidden-activity`)})})}),r(),t(),n()}let u=document.getElementById(`header-back-btn`);u&&u.addEventListener(`click`,()=>{let e=`card-${window.location.pathname.replace(`/`,``)}`,t=document.querySelector(`.detail-hero-media`),n=document.getElementById(`detail-hero-title`);t&&(t.style.viewTransitionName=`shared-hero-media`),n&&(n.style.viewTransitionName=`shared-hero-title`),c(`/`,e)});let d=document.getElementById(`logo-link`);d&&d.addEventListener(`click`,e=>{e.preventDefault(),c(`/`)}),window.addEventListener(`popstate`,()=>{c(window.location.pathname)}),c(window.location.pathname)}function c(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloader-line`),n=document.getElementById(`preloader-percentage`);if(!e||!t)return;let r=0,i=!1,a=setInterval(()=>{let e=i?Math.random()*16+12:Math.random()*4+2.5;r+=e,r>=100&&(r=100,clearInterval(a),o());let s=Math.round(r);t.style.width=`${s}%`,n&&(n.textContent=String(s).padStart(2,`0`))},35),o=()=>{clearInterval(a),t.style.width=`100%`,n&&(n.textContent=`100`),setTimeout(()=>{e.classList.add(`fade-out`);let t=document.querySelector(`.hero-media-container video`);t&&t.play().catch(()=>{}),s()},450)},s=()=>{[`/images/mochima.jpg`,`/images/lecheria.jpg`,`/images/barcelona.jpg`,`/images/guanta.jpg`].forEach(e=>{let t=new Image;t.src=e})},c=()=>{i=!0};document.readyState===`complete`?c():window.addEventListener(`load`,c),setTimeout(()=>{i=!0},1200)}var l=()=>{c(),e(),s()};document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,l):l();
+  `}function s(){let e=document.getElementById(`app`);window.routerNavigate=c;let i={"/":{render:()=>a(),title:`Anzoátegui Te Enamora`},"/mochima":{render:()=>o(`mochima`),title:`Mochima | Anzoátegui Te Enamora`},"/lecheria":{render:()=>o(`lecheria`),title:`Lechería | Anzoátegui Te Enamora`},"/barcelona":{render:()=>o(`barcelona`),title:`Barcelona | Anzoátegui Te Enamora`},"/guanta":{render:()=>o(`guanta`),title:`Guanta | Anzoátegui Te Enamora`}},s=!0;async function c(t,n=null){let r=i[t]||i[`/`];window.unlockDestinationsDeck&&window.unlockDestinationsDeck(),document.documentElement.classList.remove(`destinations-locked`),document.body.classList.remove(`destinations-locked`),t===`/`?document.documentElement.classList.add(`snap-scroll-enabled`):document.documentElement.classList.remove(`snap-scroll-enabled`);let a=document.getElementById(`logo-link`),o=document.getElementById(`header-back-btn`);if(t===`/`?(a&&a.classList.remove(`hidden`),o&&o.classList.add(`hidden`)):(a&&a.classList.add(`hidden`),o&&o.classList.remove(`hidden`)),s)s=!1,e.innerHTML=r.render(),document.title=r.title,l();else if(document.startViewTransition){let t=null,i=null;if(n){let e=document.getElementById(n);e&&(t=e.querySelector(`.card-media img`),i=e.querySelector(`.card-title`),t&&(t.style.viewTransitionName=`shared-hero-media`),i&&(i.style.viewTransitionName=`shared-hero-title`))}await document.startViewTransition(()=>{e.innerHTML=r.render(),document.title=r.title,document.documentElement.classList.remove(`snap-scroll-enabled`),window.scrollTo(0,0);let t=document.querySelector(`.detail-hero-media`),n=document.getElementById(`detail-hero-title`);t&&(t.style.viewTransitionName=`shared-hero-media`),n&&(n.style.viewTransitionName=`shared-hero-title`),l()}).finished,t&&(t.style.viewTransitionName=``),i&&(i.style.viewTransitionName=``);let a=document.querySelector(`.detail-hero-media`),o=document.getElementById(`detail-hero-title`);a&&(a.style.viewTransitionName=``),o&&(o.style.viewTransitionName=``)}else e.innerHTML=r.render(),document.title=r.title,window.scrollTo(0,0),l();window.location.pathname!==t&&window.history.pushState({path:t},``,t)}function l(){document.querySelectorAll(`.editorial-card`).forEach(e=>{e.addEventListener(`click`,t=>{if(!e.classList.contains(`active-card`))return;t.preventDefault();let n=e.getAttribute(`data-route`);n&&c(n,e.id)})});let e=document.querySelectorAll(`.filter-pill`),i=document.querySelectorAll(`.highlight-item`);e.forEach(t=>{t.addEventListener(`click`,()=>{e.forEach(e=>e.classList.remove(`active`)),t.classList.add(`active`);let n=t.getAttribute(`data-filter`);i.forEach(e=>{let t=e.getAttribute(`data-experience`);n===`all`||t===n?e.classList.remove(`hidden-filter`):e.classList.add(`hidden-filter`)})})});let a=document.querySelectorAll(`.act-filter-pill`),o=document.querySelectorAll(`.experience-item-card`);a.forEach(e=>{e.addEventListener(`click`,()=>{a.forEach(e=>e.classList.remove(`active`)),e.classList.add(`active`);let t=e.getAttribute(`data-filter`);o.forEach(e=>{let n=e.getAttribute(`data-activity-type`);t===`all`||n===t?e.classList.remove(`hidden-activity`):e.classList.add(`hidden-activity`)})})}),document.querySelectorAll(`.exp-badge-btn`).forEach(e=>{e.addEventListener(`click`,t=>{t.stopPropagation();let n=e.getAttribute(`data-filter`),r=Array.from(a).find(e=>e.getAttribute(`data-filter`)===n);if(r){r.click();let e=document.querySelector(`.experiences-section`);e&&e.scrollIntoView({behavior:`smooth`,block:`start`})}})}),r(),t(),n()}let u=document.getElementById(`header-back-btn`);u&&u.addEventListener(`click`,()=>{let e=`card-${window.location.pathname.replace(`/`,``)}`,t=document.querySelector(`.detail-hero-media`),n=document.getElementById(`detail-hero-title`);t&&(t.style.viewTransitionName=`shared-hero-media`),n&&(n.style.viewTransitionName=`shared-hero-title`),c(`/`,e)});let d=document.getElementById(`logo-link`);d&&d.addEventListener(`click`,e=>{e.preventDefault(),c(`/`)}),window.addEventListener(`popstate`,()=>{c(window.location.pathname)}),c(window.location.pathname)}function c(){let e=document.getElementById(`preloader`),t=document.getElementById(`preloader-line`),n=document.getElementById(`preloader-percentage`);if(!e||!t)return;let r=0,i=!1,a=setInterval(()=>{let e=i?Math.random()*16+12:Math.random()*4+2.5;r+=e,r>=100&&(r=100,clearInterval(a),o());let s=Math.round(r);t.style.width=`${s}%`,n&&(n.textContent=String(s).padStart(2,`0`))},35),o=()=>{clearInterval(a),t.style.width=`100%`,n&&(n.textContent=`100`),setTimeout(()=>{e.classList.add(`fade-out`);let t=document.querySelector(`.hero-media-container video`);t&&t.play().catch(()=>{}),s()},450)},s=()=>{[`/images/mochima.jpg`,`/images/lecheria.jpg`,`/images/barcelona.jpg`,`/images/guanta.jpg`].forEach(e=>{let t=new Image;t.src=e})},c=()=>{i=!0};document.readyState===`complete`?c():window.addEventListener(`load`,c),setTimeout(()=>{i=!0},1200)}var l=()=>{c(),e(),s()};document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,l):l();

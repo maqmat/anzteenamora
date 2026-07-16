@@ -309,7 +309,7 @@ function getHomeHTML() {
 
       <!-- Filtros Activos estilo Visit Singapore -->
       <div class="activities-filter-pills reveal-fade-up delay-1">
-        <button class="act-filter-pill active" data-filter="all">Unique Experiences</button>
+        <button class="act-filter-pill active" data-filter="all">Todo</button>
         <button class="act-filter-pill" data-filter="aventura">Aventura</button>
         <button class="act-filter-pill" data-filter="gastronomia">Gastronomía</button>
         <button class="act-filter-pill" data-filter="historia">Historia</button>
@@ -317,69 +317,81 @@ function getHomeHTML() {
       </div>
 
       <div class="experiences-grid">
+        <!-- Experiencia 1: Aventura -->
         <div class="experience-item-card reveal-fade-up" data-activity-type="aventura">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/mochima.jpg" alt="Snorkel en Isla de Plata" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Mochima</span>
+            <h3 class="exp-card-title">Snorkel en Isla de Plata</h3>
+            <p class="exp-card-desc">Explora arrecifes de coral y nada junto a peces exóticos en las aguas más tranquilas del Parque Nacional.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-1" data-activity-type="naturaleza">
+        <!-- Experiencia 2: Historia -->
+        <div class="experience-item-card reveal-fade-up delay-1" data-activity-type="historia">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/barcelona.jpg" alt="Ruta Colonial de Barcelona" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="historia">Historia</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Barcelona</span>
+            <h3 class="exp-card-title">Ruta Colonial de Barcelona</h3>
+            <p class="exp-card-desc">Descubre la Casa de la Fuerte, la Catedral de San Cristóbal y las leyendas de la época colonial.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-2" data-activity-type="gastronomia">
+        <!-- Experiencia 3: Aventura -->
+        <div class="experience-item-card reveal-fade-up delay-2" data-activity-type="aventura">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/lecheria.jpg" alt="Sunset Kayak en El Morro" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="aventura">Aventura</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Lechería</span>
+            <h3 class="exp-card-title">Sunset Kayak en El Morro</h3>
+            <p class="exp-card-desc">Navega en kayak bordeando los acantilados del Cerro El Morro mientras el sol tiñe el Caribe de dorado.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-3" data-activity-type="historia">
+        <!-- Experiencia 4: Naturaleza -->
+        <div class="experience-item-card reveal-fade-up delay-3" data-activity-type="naturaleza">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/guanta.jpg" alt="Sendero de los Siete Pisos" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Guanta</span>
+            <h3 class="exp-card-title">Sendero de los Siete Pisos</h3>
+            <p class="exp-card-desc">Camina a través de la selva tropical húmeda hasta toparte con las pozas y caídas de agua de las cascadas de Guanta.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-4" data-activity-type="aventura">
+        <!-- Experiencia 5: Gastronomía -->
+        <div class="experience-item-card reveal-fade-up delay-4" data-activity-type="gastronomia">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/lecheria.jpg" alt="Cena en Canales de Lechería" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="gastronomia">Gastronomía</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Lechería</span>
+            <h3 class="exp-card-title">Cena en Canales de Lechería</h3>
+            <p class="exp-card-desc">Vive una velada exclusiva en restaurantes de autor ubicados a la orilla de los icónicos canales navegables.</p>
           </div>
         </div>
 
-        <div class="experience-item-card reveal-fade-up delay-5" data-activity-type="gastronomia">
+        <!-- Experiencia 6: Naturaleza -->
+        <div class="experience-item-card reveal-fade-up delay-5" data-activity-type="naturaleza">
           <div class="exp-card-image">
-            <span class="exp-badge">Lorem</span>
+            <img src="/images/mochima.jpg" alt="Avistamiento de Delfines" loading="lazy" />
+            <button class="exp-badge-btn" data-filter="naturaleza">Naturaleza</button>
           </div>
           <div class="exp-card-info">
-            <span class="exp-category">Lorem Ipsum</span>
-            <h3 class="exp-card-title">Lorem Ipsum Dolor</h3>
-            <p class="exp-card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Temporibus, perferendis.</p>
+            <span class="exp-category">Mochima</span>
+            <h3 class="exp-card-title">Avistamiento de Delfines</h3>
+            <p class="exp-card-desc">Navega en lancha hacia las islas más alejadas del parque nacional y déjate acompañar por simpáticos delfines salvajes.</p>
           </div>
         </div>
       </div>
@@ -647,6 +659,23 @@ export function initRouter() {
             card.classList.add('hidden-activity');
           }
         });
+      });
+    });
+
+    // 4. Controlar Filtros de Actividades al pulsar los botones de etiquetas
+    const expBadgeBtns = document.querySelectorAll('.exp-badge-btn');
+    expBadgeBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const filterVal = btn.getAttribute('data-filter');
+        const matchingPill = Array.from(actFilterPills).find(pill => pill.getAttribute('data-filter') === filterVal);
+        if (matchingPill) {
+          matchingPill.click();
+          const section = document.querySelector('.experiences-section');
+          if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
       });
     });
 
