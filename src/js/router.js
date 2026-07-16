@@ -309,14 +309,6 @@ function getHomeHTML() {
 
       <!-- Botones de las Etiquetas (Categorías) Bien Bonitos -->
       <div class="experience-category-buttons-grid reveal-fade-up delay-1">
-        <button class="category-btn active" data-filter="all">
-          <div class="category-btn-icon">✨</div>
-          <div class="category-btn-content">
-            <span class="category-btn-title">Todo</span>
-            <span class="category-btn-desc">Ver todas las experiencias</span>
-          </div>
-        </button>
-        
         <button class="category-btn" data-filter="aventura">
           <div class="category-btn-icon">⛵</div>
           <div class="category-btn-content">
@@ -694,12 +686,10 @@ export function initRouter() {
           }
         });
 
-        // Hacer scroll suave hacia las tarjetas filtradas si no es "Todo"
-        if (filter !== 'all') {
-          const grid = document.querySelector('.experiences-grid');
-          if (grid) {
-            grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
+        // Hacer scroll suave hacia las tarjetas filtradas en la parte inferior
+        const grid = document.querySelector('.experiences-grid');
+        if (grid) {
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
     });
