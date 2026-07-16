@@ -501,6 +501,11 @@ function getHomeHTML() {
           </div>
         `).join('')}
       </div>
+
+      <!-- Indicador de Progreso del Scroll en Mobile -->
+      <div class="experiences-scroll-progress-container">
+        <div class="experiences-scroll-progress-bar"></div>
+      </div>
     </section>
   `;
 }
@@ -786,6 +791,20 @@ export function initRouter() {
         }
       });
     });
+
+    // 5. Vincular scroll de la grilla con el indicador de progreso en mobile
+    const experiencesGrid = document.querySelector('.experiences-grid');
+    const scrollBar = document.querySelector('.experiences-scroll-progress-bar');
+    if (experiencesGrid && scrollBar) {
+      experiencesGrid.addEventListener('scroll', () => {
+        const maxScroll = experiencesGrid.scrollWidth - experiencesGrid.clientWidth;
+        if (maxScroll > 0) {
+          const scrollPct = (experiencesGrid.scrollLeft / maxScroll) * 100;
+          // El ancho de la barra es 30%, así que el left se desplaza de 0% a 70%
+          scrollBar.style.left = `${scrollPct * 0.7}%`;
+        }
+      });
+    }
 
     // Re-inicializar efectos visuales e IntersectionObservers
     initScrollEffects();

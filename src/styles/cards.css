@@ -627,13 +627,12 @@
 
 /* Sección de Actividades / Qué Hacer (Estilo Awwwards / visit singapore) */
 .experiences-section {
-  padding: 0;
+  padding: 100px 0;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  height: 100vh;
-  justify-content: center;
+  gap: 35px;
+  min-height: 100vh;
   box-sizing: border-box;
 }
 
@@ -657,9 +656,21 @@
   flex-direction: column;
   gap: 16px;
   background-color: #ffffff;
-  border-radius: 20px;
-  overflow: hidden;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 24px;
+  padding: 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.experience-item-card:hover {
+  transform: translateY(-8px) rotateX(4deg) rotateY(-2deg);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 45px rgba(212, 175, 55, 0.12);
 }
 
 .exp-card-image {
@@ -670,6 +681,7 @@
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
   background: linear-gradient(135deg, #1b1b1b 0%, #0d0d0d 100%);
+  transform: translateZ(25px);
 }
 
 .exp-card-image img {
@@ -688,6 +700,7 @@
   flex-direction: column;
   gap: 8px;
   padding: 0 4px;
+  transform: translateZ(15px);
 }
 
 .exp-card-title {
@@ -707,7 +720,7 @@
 /* Responsividad para Actividades */
 @media (max-width: 768px) {
   .experiences-section {
-    padding: 60px 0 20px;
+    padding: 60px 0 40px;
     height: auto;
     min-height: 100vh;
     box-sizing: border-box;
@@ -722,7 +735,7 @@
     flex-direction: row;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    padding: 10px 5% 30px;
+    padding: 10px 6% 20px;
     gap: 20px;
     width: 100%;
     box-sizing: border-box;
@@ -735,17 +748,45 @@
   }
 
   .experience-item-card {
-    flex: 0 0 76vw;
+    flex: 0 0 70vw; /* El siguiente card se asoma un 30vw para invitar al scroll */
     scroll-snap-align: center;
     background-color: #ffffff;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
-    border-radius: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
     padding: 16px;
   }
   
   .exp-card-image {
     height: 180px;
   }
+  
+  .experiences-scroll-progress-container {
+    display: block;
+  }
+}
+
+/* Indicador de Progreso del Scroll en Mobile */
+.experiences-scroll-progress-container {
+  display: none;
+  width: 120px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.08);
+  margin: 10px auto 0;
+  border-radius: 3px;
+  position: relative;
+  overflow: hidden;
+}
+
+.experiences-scroll-progress-bar {
+  width: 30%;
+  height: 100%;
+  background: var(--accent-gold);
+  border-radius: 3px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: left 0.1s ease;
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
