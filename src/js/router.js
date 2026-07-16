@@ -503,8 +503,11 @@ function getHomeHTML() {
       </div>
 
       <!-- Indicador de Progreso del Scroll en Mobile -->
-      <div class="experiences-scroll-progress-container">
-        <div class="experiences-scroll-progress-bar"></div>
+      <div class="experiences-scroll-helper">
+        <span class="scroll-helper-text">← Desliza para ver más →</span>
+        <div class="experiences-scroll-progress-container">
+          <div class="experiences-scroll-progress-bar"></div>
+        </div>
       </div>
     </section>
   `;
