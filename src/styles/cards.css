@@ -501,72 +501,29 @@
   .destinations-section {
     height: 100vh;
     height: 100dvh;
-    padding: 30px 0 15px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     overflow: hidden;
   }
   
   .destinations-layout-container {
-    flex-direction: column-reverse;
-    height: 100%;
-    max-height: calc(100vh - 40px);
-    max-height: calc(100dvh - 40px);
-    gap: 15px;
-    width: 92%;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .destinations-info-panel {
-    flex: 0 0 auto;
-    width: 100%;
-    align-items: center;
-    text-align: center;
-    gap: 12px;
-  }
-  
-  .destinations-info-panel .section-header {
-    align-items: center;
-    display: flex;
     flex-direction: column;
-  }
-
-  .destinations-info-panel .section-header .section-title {
-    font-size: 1.5rem;
-    margin: 0;
-  }
-  
-  .destinations-info-panel .section-header .section-label {
-    margin-bottom: 2px;
-  }
-
-  .active-destination-info {
-    min-height: auto;
+    height: 100%;
+    width: 100%;
+    gap: 0;
+    justify-content: flex-end;
     align-items: center;
-    gap: 6px;
+  }
+
+  /* Ocultar el header "Explorar / Destinos" en mobile para ganar espacio */
+  .destinations-info-panel .section-header {
+    display: none;
   }
   
-  .active-dest-name {
-    font-size: 2.1rem;
-    line-height: 1.1;
-  }
-  
-  .active-dest-desc {
-    font-size: 0.8rem;
-    line-height: 1.4;
-    max-width: 320px;
-  }
-  
-  .active-dest-link {
-    align-self: center;
-    margin-top: 4px;
-    padding: 8px 20px;
-    font-size: 0.8rem;
-  }
-  
+  /* El deck ocupa todo el espacio disponible */
   .destinations-deck-wrapper {
     flex: 1 1 auto;
     width: 100%;
@@ -578,50 +535,78 @@
   }
   
   .destinations-deck-container {
-    width: 200px;
-    max-width: 200px;
-    height: 260px;
+    width: 220px;
+    max-width: 220px;
+    height: 285px;
     flex-shrink: 0;
   }
   
   .destinations-deck-container .card-title {
     font-size: 1.5rem;
   }
+
+  /* Panel de info ocupa solo lo que necesita, pegado al fondo */
+  .destinations-info-panel {
+    flex: 0 0 auto;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    padding: 12px 5% 20px;
+    box-sizing: border-box;
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+  
+  .active-destination-info {
+    min-height: auto;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .active-dest-name {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+  
+  .active-dest-desc {
+    font-size: 0.78rem;
+    line-height: 1.4;
+    max-width: 300px;
+  }
+  
+  .active-dest-link {
+    align-self: center;
+    margin-top: 2px;
+    padding: 7px 18px;
+    font-size: 0.78rem;
+  }
 }
 
 /* Escalar hacia abajo en dispositivos móviles con pantallas de baja altura (ej. iPhone SE, etc.) */
 @media (max-height: 750px) and (max-width: 768px) {
-  .destinations-section {
-    padding: 15px 0 10px;
-  }
-  .destinations-layout-container {
-    gap: 8px;
-    max-height: calc(100dvh - 30px);
-  }
   .destinations-info-panel {
-    gap: 6px;
-  }
-  .destinations-info-panel .section-header .section-title {
-    font-size: 1.3rem;
+    gap: 4px;
+    padding-top: 8px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
   }
   .active-destination-info {
     gap: 3px;
   }
   .active-dest-name {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
   }
   .active-dest-desc {
-    font-size: 0.75rem;
+    font-size: 0.74rem;
     line-height: 1.3;
-    max-width: 290px;
+    max-width: 280px;
   }
   .destinations-deck-container {
-    width: 165px;
-    max-width: 165px;
-    height: 215px;
+    width: 175px;
+    max-width: 175px;
+    height: 230px;
   }
   .destinations-deck-container .card-title {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 }
 
