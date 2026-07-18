@@ -504,30 +504,35 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+    align-items: stretch;
+    /* overflow:clip contiene el 3D sin cortar contenido flex */
+    overflow: clip;
   }
   
+  /* flex:1 garantiza que ocupa exactamente el espacio del padre */
   .destinations-layout-container {
+    flex: 1 1 0;
+    min-height: 0;
+    height: 100%; /* cancela el height:80vh del estilo base */
     flex-direction: column-reverse;
-    height: 100%;
     width: 90%;
+    margin: 0 auto;
     gap: 0;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    /* SIN overflow:hidden — no clipear el info panel */
+    overflow: visible;
   }
   
-  /* El deck se reduce para dejar espacio al info panel debajo */
+  /* El deck ocupa TODO el espacio que sobre después del info panel */
   .destinations-deck-wrapper {
-    flex: 1 1 auto;
-    width: 100%;
+    flex: 1 1 0;
     min-height: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible;
-    padding-top: 55px; /* espacio para el header del browser */
+    overflow: visible; /* dejar que las cartas del deck asomen */
   }
   
   .destinations-deck-container {
@@ -541,14 +546,14 @@
     font-size: 1.4rem;
   }
 
-  /* Panel de info compact al fondo */
+  /* Info panel ocupa solo su tamaño natural al fondo */
   .destinations-info-panel {
     flex: 0 0 auto;
     width: 100%;
     align-items: center;
     text-align: center;
     gap: 6px;
-    padding-bottom: max(18px, env(safe-area-inset-bottom));
+    padding: 10px 0 max(16px, env(safe-area-inset-bottom));
     box-sizing: border-box;
   }
   
@@ -580,22 +585,22 @@
     line-height: 1.1;
   }
   
-  /* Ocultar descripción en mobile para que quepa todo sin overflow */
+  /* Ocultar descripción en mobile: demasiados elementos para 100dvh */
   .active-dest-desc {
     display: none;
   }
 
   .deck-controls {
-    margin-top: 6px;
+    margin-top: 4px;
   }
 }
 
-/* Escalar hacia abajo en dispositivos móviles con pantallas de baja altura (ej. iPhone SE, etc.) */
+/* Escalar hacia abajo en pantallas de baja altura (ej. iPhone SE) */
 @media (max-height: 700px) and (max-width: 768px) {
   .destinations-deck-container {
     width: 160px;
     max-width: 160px;
-    height: 210px;
+    height: 205px;
   }
   .destinations-deck-container .card-title {
     font-size: 1.2rem;
