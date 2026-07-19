@@ -143,8 +143,8 @@ const DESTINATIONS = {
         experience: 'Naturaleza'
       },
       {
-        title: 'Las Pozas de Guanta',
-        desc: 'Piscinas naturales formadas por el cauce de ríos de montaña, ideales para el ecoturismo y la observación de aves locales.',
+        title: 'La Cascada Siete Pisos',
+        desc: 'Una caminata de aventura a través de la selva tropical húmeda que te lleva a descubrir una serie de pozas naturales de agua fría de montaña.',
         experience: 'Aventura'
       }
     ]
