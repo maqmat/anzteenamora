@@ -50,9 +50,16 @@ html, body {
 html.destinations-locked,
 body.destinations-locked {
   background-color: #0b0b0b !important;
-  overflow: hidden !important;
   overscroll-behavior-y: contain !important;
 }
+
+@media (min-width: 769px) {
+  html.destinations-locked,
+  body.destinations-locked {
+    overflow: hidden !important;
+  }
+}
+
 
 
 /* Ocultar barra de scroll de la derecha (Chrome, Safari, Opera) */

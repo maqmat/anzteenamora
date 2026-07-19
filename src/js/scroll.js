@@ -1,3 +1,30 @@
+// ── Fix de altura mobile FUERA de initScrollEffects para referencia estable ──
+// Bug: hero=100vh (grande), destinations=100dvh (dinámico). Cuando Chrome Android
+// oculta su barra de URL durante snap-scroll, el viewport crece pero la sección no
+// reacciona a tiempo → franja negra.
+// Fix: usar visualViewport.height que se actualiza en tiempo real, incluyendo
+// durante las animaciones de la barra del browser, a diferencia de window.resize
+// que NO se dispara confiablemente en esos casos en Android.
+function _applyDestinationsHeight() {
+  if (window.innerWidth > 768) return;
+  const section = document.querySelector('.destinations-section');
+  if (!section) return;
+  const h = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+  section.style.height = h + 'px';
+}
+
+// Registrar listeners una sola vez (sobreviven recargas del DOM del SPA)
+if (!window._destHeightBound) {
+  window._destHeightBound = true;
+  if (window.visualViewport) {
+    // visualViewport.resize: se dispara cuando la barra del browser Android cambia
+    window.visualViewport.addEventListener('resize', _applyDestinationsHeight);
+    window.visualViewport.addEventListener('scroll', _applyDestinationsHeight);
+  }
+  // Fallback para browsers sin visualViewport
+  window.addEventListener('resize', _applyDestinationsHeight, { passive: true });
+}
+
 export function initScrollEffects() {
   // 1. Cambiar aspecto del cabezal en scroll
   const handleHeaderScroll = () => {
@@ -80,27 +107,6 @@ export function initScrollEffects() {
   handleHeaderScroll();
   updateHeroParallax();
 
-  // ── Fix altura mobile para destinations-section ─────────────────────────────
-  // El bug: 100dvh cambia cuando Chrome Android oculta/muestra la barra de URL
-  // durante el snap-scroll. El hero usa 100vh (grande) y la section podría quedar
-  // más corta que el viewport, dejando una franja negra abajo.
-  // La solución: fijar la altura con window.innerHeight (siempre exacto).
-  function fixMobileDestinationsHeight() {
-    const section = document.querySelector('.destinations-section');
-    if (!section) return;
-    if (window.innerWidth <= 768) {
-      section.style.height = window.innerHeight + 'px';
-    } else {
-      section.style.height = ''; // limpiar en desktop
-    }
-  }
-
-  // Aplicar de inmediato
-  fixMobileDestinationsHeight();
-
-  // Actualizar cuando el viewport cambia (address bar show/hide dispara resize)
-  if (!window.mobileVhListenerBound) {
-    window.addEventListener('resize', fixMobileDestinationsHeight, { passive: true });
-    window.mobileVhListenerBound = true;
-  }
+  // Aplicar altura correcta inmediatamente al renderizar la página
+  _applyDestinationsHeight();
 }
