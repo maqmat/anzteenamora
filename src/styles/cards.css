@@ -520,8 +520,8 @@
     margin: 0;
 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* info panel pegado al fondo */
+    flex-direction: column-reverse; /* deck arriba, info abajo */
+    justify-content: flex-start;    /* en column-reverse start=abajo */
     align-items: center;
     gap: 0;
   }
