@@ -283,8 +283,8 @@ function getHomeHTML() {
     <section class="hero-section">
       <div class="hero-media-container">
         <!-- Intentar reproducir el video, si no existe o falla se muestra el poster -->
-        <video autoplay muted loop playsinline preload="auto" poster="/src/assets/hero.png" id="hero-video">
-          <source src="/src/assets/videos/hero-el-morro.mp4" type="video/mp4">
+        <video autoplay muted loop playsinline preload="auto" poster="/images/hero.png" id="hero-video">
+          <source src="/videos/hero-el-morro.mp4" type="video/mp4">
         </video>
       </div>
       <div class="hero-overlay"></div>
