@@ -1,33 +1,4 @@
 export function initInteractions() {
-  // 1. Círculo Táctil Interactivo (Cursor Follower)
-  const indicator = document.getElementById('touch-indicator');
-  
-  if (indicator) {
-    let isMoving = false;
-
-    window.addEventListener('pointermove', (e) => {
-      if (!isMoving) {
-        indicator.classList.add('active');
-        isMoving = true;
-      }
-      indicator.style.left = `${e.clientX}px`;
-      indicator.style.top = `${e.clientY}px`;
-    }, { passive: true });
-
-    window.addEventListener('pointerdown', () => {
-      indicator.classList.add('pressed');
-    });
-
-    window.addEventListener('pointerup', () => {
-      indicator.classList.remove('pressed');
-    });
-
-    document.addEventListener('pointerleave', () => {
-      indicator.classList.remove('active');
-      isMoving = false;
-    });
-  }
-
   // 2. Inicialización del Deck 3D de Destinos
   initDestinationsDeck();
 

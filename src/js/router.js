@@ -655,7 +655,14 @@ export function initRouter() {
         
         // Quitar la clase de snap scroll y resetear posición del scroll instantáneamente
         document.documentElement.classList.remove('snap-scroll-enabled');
+        
+        const origScrollBehavior = document.documentElement.style.scrollBehavior;
+        document.documentElement.style.scrollBehavior = 'auto';
+        document.body.style.scrollBehavior = 'auto';
         window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        document.documentElement.style.scrollBehavior = origScrollBehavior;
         
         // 3. Asignar view-transition-name a los elementos destino
         const destImage = document.querySelector('.detail-hero-media');
@@ -668,8 +675,29 @@ export function initRouter() {
         bindDynamicEvents();
       });
 
+      if (transition.ready) {
+        transition.ready.then(() => {
+          const origScrollBehavior = document.documentElement.style.scrollBehavior;
+          document.documentElement.style.scrollBehavior = 'auto';
+          document.body.style.scrollBehavior = 'auto';
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+          document.documentElement.style.scrollBehavior = origScrollBehavior;
+        }).catch(() => {});
+      }
+
       // 4. Limpiar los nombres de transición una vez completado
       await transition.finished;
+      
+      const origScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.body.style.scrollBehavior = 'auto';
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      document.documentElement.style.scrollBehavior = origScrollBehavior;
+
       if (sourceImage) sourceImage.style.viewTransitionName = '';
       if (sourceTitle) sourceTitle.style.viewTransitionName = '';
       
@@ -682,7 +710,15 @@ export function initRouter() {
       // Fallback para navegadores antiguos
       app.innerHTML = route.render();
       document.title = route.title;
+      
+      const origScrollBehavior = document.documentElement.style.scrollBehavior;
+      document.documentElement.style.scrollBehavior = 'auto';
+      document.body.style.scrollBehavior = 'auto';
       window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      document.documentElement.style.scrollBehavior = origScrollBehavior;
+
       bindDynamicEvents();
     }
 

@@ -1,19 +1,5 @@
-/* Círculo Indicador Táctil (Feedback Físico) */
 .touch-indicator {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 32px;
-  height: 32px;
-  border: 1px solid var(--accent-gold);
-  background-color: rgba(197, 168, 128, 0.05);
-  border-radius: 50%;
-  pointer-events: none; /* No interfiere con clicks */
-  transform: translate(-50%, -50%) scale(0);
-  opacity: 0;
-  z-index: 9999;
-  transition: transform 0.15s var(--ease-out-quint), opacity 0.2s ease;
-  will-change: transform, opacity;
+  display: none !important;
 }
 
 .touch-indicator.active {
