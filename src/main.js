@@ -59,7 +59,7 @@ function initPreloader() {
   // Pre-cargar imágenes de detalles
   const preloadDetailImages = () => {
     const imagesToPreload = [
-      '/images/mochima.jpg',
+      '/images/Parque_Nacional_mochima.jpg',
       '/images/lecheria.jpg',
       '/images/barcelona.jpg',
       '/images/guanta.jpg'

@@ -10,7 +10,7 @@ const DESTINATIONS = {
   mochima: {
     title: 'Mochima',
     category: 'Parque Nacional',
-    image: '/images/mochima.jpg',
+    image: '/images/Parque_Nacional_mochima.jpg',
     intro: 'El <strong>Parque Nacional Mochima</strong> es un santuario marino compartido entre Anzoátegui y Sucre. Sus aguas cristalinas de tonalidades turquesa, arenas blancas y archipiélagos vírgenes ofrecen un refugio inigualable para la vida marina, incluyendo delfines y corales exóticos. Es un paraíso para el snorkel, el buceo y la desconexión total.',
     info: {
       temp: '27°C - 31°C',
@@ -203,16 +203,16 @@ const EXPERIENCES = [
   {
     type: 'gastronomia',
     category: 'Lechería',
-    title: 'Café de Especialidad',
-    desc: 'Un recorrido por locales con diseños minimalistas y barismo de alta gama que sirven granos venezolanos seleccionados.',
-    image: '/images/lecheria.jpg'
+    title: 'Marea en Lechería',
+    desc: 'Disfruta de una propuesta culinaria marina de vanguardia en un espacio con arquitectura de diseño espectacular frente al mar.',
+    image: '/images/marea.jpg'
   },
   {
     type: 'gastronomia',
     category: 'Lechería',
-    title: 'Rooftops en El Morro',
-    desc: 'Disfruta de cocteles de autor inspirados en frutas tropicales con espectaculares vistas de 360° a la bahía de Lechería.',
-    image: '/images/lecheria.jpg'
+    title: 'Ikea en Lechería',
+    desc: 'Un sofisticado café y lounge de diseño contemporáneo, perfecto para degustar postres de autor y coctelería premium.',
+    image: '/images/ikea.jpg'
   },
 
   // HISTORIA
