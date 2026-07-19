@@ -138,11 +138,6 @@ const DESTINATIONS = {
         experience: 'Naturaleza'
       },
       {
-        title: 'Playa Conoma y Conomita',
-        desc: 'Playas de aguas mansas protegidas por ensenadas boscosas. Su arena rojiza fina contrasta bellamente con el mar verde esmeralda.',
-        experience: 'Naturaleza'
-      },
-      {
         title: 'Las Pozas de Guanta',
         desc: 'Piscinas naturales formadas por el cauce de ríos de montaña, ideales para el ecoturismo y la observación de aves locales.',
         experience: 'Aventura'
@@ -159,28 +154,28 @@ const EXPERIENCES = [
     category: 'El Morro',
     title: 'Vuelo en Parapente',
     desc: 'Despega desde la cima del cerro El Morro y planea sobre el Caribe para aterrizar directamente en Playa Cangrejo al atardecer.',
-    image: '/images/lecheria.jpg'
+    image: '/images/vuelo_parapente_el_morro.jpg'
   },
   {
     type: 'aventura',
     category: 'Mochima',
     title: 'Snorkel en La Piscina',
     desc: 'Sumérgete en una piscina natural de aguas cristalinas en medio del mar, rodeado de corales y peces exóticos.',
-    image: '/images/mochima.jpg'
+    image: '/images/playa_piscina.jpg'
   },
   {
     type: 'aventura',
     category: 'Guanta',
     title: 'Canyoning en las Cuevas',
     desc: 'Explora senderos selváticos, salta a pozos de agua cristalina y haz rápel dentro de cuevas con ríos subterráneos.',
-    image: '/images/guanta.jpg'
+    image: '/images/cuevas_de_rolando.jpg'
   },
   {
     type: 'aventura',
     category: 'Mochima',
     title: 'Paseo en Catamarán al Faro',
     desc: 'Alquila un catamarán de diseño para pasar el día fondeado en la bahía de Isla El Faro, con tablas de paddle board privadas.',
-    image: '/images/mochima.jpg'
+    image: '/images/el_faro.jpg'
   },
 
   // GASTRONOMÍA
@@ -189,21 +184,21 @@ const EXPERIENCES = [
     category: 'Lechería',
     title: 'Beijing Restaurant',
     desc: 'Degusta la gastronomía asiática de autor más exclusiva de la región en un ambiente sofisticado y de diseño único.',
-    image: '/images/lecheria.jpg'
+    image: '/images/beijing_rest.jpg'
   },
   {
     type: 'gastronomia',
     category: 'Lechería',
     title: '212 Restaurant & Bistro',
     desc: 'Una de las experiencias culinarias más exclusivas y chic de Lechería, con platos fusión y coctelería premium de alto nivel.',
-    image: '/images/lecheria.jpg'
+    image: '/images/212.jpg'
   },
   {
     type: 'gastronomia',
-    category: 'Paseo Colón',
-    title: 'Marisquerías del Ferry',
-    desc: 'Disfruta del auténtico pescado frito oriental y cazuelas de mariscos recién capturados a orillas de la bahía.',
-    image: '/images/lecheria.jpg'
+    category: 'Puerto La Cruz',
+    title: 'El Boulevard de las Empanadas',
+    desc: 'Disfruta de las tradicionales y famosas empanadas de cazón, mariscos y queso preparadas al momento frente al mar.',
+    image: '/images/ElBoulevarddelasEmpanadas.jpg'
   },
   {
     type: 'gastronomia',
@@ -226,35 +221,28 @@ const EXPERIENCES = [
     category: 'El Morro',
     title: 'Fortín de la Magdalena',
     desc: 'Sube a las ruinas del fortín colonial español en el cerro para contemplar el atardecer entre cañones antiguos y acantilados.',
-    image: '/images/lecheria.jpg'
+    image: '/images/Fortin-de-la-magdalena-lecheria.jpg'
   },
   {
     type: 'historia',
     category: 'Barcelona',
     title: 'Ruinas de la Casa Fuerte',
     desc: 'Camina entre las imponentes ruinas neoclásicas del siglo XVIII, donde árboles centenarios crecen entre paredes coloniales.',
-    image: '/images/barcelona.jpg'
+    image: '/images/casa-fuerte-barcelona-.jpg'
   },
   {
     type: 'historia',
     category: 'Barcelona',
     title: 'Catedral de Barcelona',
     desc: 'Visita el templo y contempla el santuario de San Celestino, uno de los pocos cuerpos incorruptos de mártires romanos en América.',
-    image: '/images/barcelona.jpg'
-  },
-  {
-    type: 'historia',
-    category: 'Clarines',
-    title: 'Casco Colonial de Clarines',
-    desc: 'Recorre calles empedradas de casonas coloridas y visita la majestuosa Iglesia de San Antonio de Padua, joya del barroco.',
-    image: '/images/barcelona.jpg'
+    image: '/images/CATEDRAL-carcelona.jpg'
   },
   {
     type: 'historia',
     category: 'Barcelona',
     title: 'Ermita de El Carmen',
     desc: 'Visita esta mística iglesia construida con una arquitectura gótica simplificada que destaca en el paisaje tropical de la ciudad.',
-    image: '/images/barcelona.jpg'
+    image: '/images/Ermita_Nuestra_Se_C3_B1ora_del_Carmen._Barcelona_2C_Edo._Anzoategui__281_29.jpg'
   },
 
   // NATURALEZA
@@ -263,35 +251,28 @@ const EXPERIENCES = [
     category: 'Mochima',
     title: 'Avistamiento de Delfines',
     desc: 'Navega a primera hora de la mañana para acompañar a manadas de delfines silvestres que saltan al lado del bote en mar abierto.',
-    image: '/images/mochima.jpg'
+    image: '/images/delfines_mochima.jpg'
   },
   {
     type: 'naturaleza',
     category: 'Boca de Uchire',
     title: 'Flamencos en Laguna de Unare',
     desc: 'Navega en peñero por la laguna de Unare al amanecer para presenciar miles de flamencos teñir el paisaje de color rosa.',
-    image: '/images/guanta.jpg'
-  },
-  {
-    type: 'naturaleza',
-    category: 'Mochima',
-    title: 'Mirador de Isla El Faro',
-    desc: 'Camina por el sendero empinado de la isla hasta la cima del faro para lograr la panorámica más espectacular del parque nacional.',
-    image: '/images/mochima.jpg'
+    image: '/images/laguna_unare.jpg'
   },
   {
     type: 'naturaleza',
     category: 'Guanta',
     title: 'Cascada Siete Pisos',
     desc: 'Una caminata de aventura por la selva tropical húmeda que te lleva a descubrir una serie de pozas de agua fría de montaña.',
-    image: '/images/guanta.jpg'
+    image: '/images/7_pisos.jpg'
   },
   {
     type: 'naturaleza',
     category: 'Mochima',
     title: 'Playa Varadero',
     desc: 'Relájate en una de las playas más escondidas y exclusivas, famosa por sus aguas turquesa mansas, arena fina y calma total.',
-    image: '/images/mochima.jpg'
+    image: '/images/isla_varadero.jpg'
   }
 ];
 
