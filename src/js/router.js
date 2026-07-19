@@ -64,31 +64,31 @@ const DESTINATIONS = {
         experience: 'Citas'
       },
       {
-        title: 'Casabar Restaurante',
-        desc: 'Cocina fusión de nivel mundial y coctelería premium. Con una atmósfera íntima de luces tenues y música lounge, es el lugar ideal para una cita romántica inolvidable.',
+        title: 'Marea en Lechería',
+        desc: 'Disfruta de una propuesta culinaria marina de vanguardia en un espacio con arquitectura de diseño espectacular frente al mar.',
         experience: 'Gastronomía'
       },
       {
-        title: 'Tito\'s Restaurant & Club',
-        desc: 'Ubicado frente a los canales navegables. Ofrece cortes de carne premium, pescados frescos con técnicas mediterráneas y una terraza espectacular para ver pasar los yates.',
+        title: 'Tasca El Moroco',
+        desc: 'Un clásico gastronómico de tradición en Lechería, famoso por su insuperable cocina española, paellas, mariscos y ambiente premium.',
         experience: 'Gastronomía'
       },
       {
-        title: 'Sunset Café en Playa Lido',
-        desc: 'Un pequeño rincón de madera y luces cálidas en la arena. Perfecto para tomar un capuchino frío, disfrutar de un brunch dominical o ver la puesta de sol en pareja.',
+        title: 'VIVO Rest',
+        desc: 'Fusión gastronómica única que combina lo mejor de la cocina de autor venezolana con toques asiáticos modernos en un ambiente sofisticado.',
+        experience: 'Gastronomía'
+      },
+      {
+        title: 'Ikea en Lechería',
+        desc: 'Un café y lounge contemporáneo muy popular, ideal para compartir postres gourmet y coctelería fina en el corazón de la ciudad.',
         experience: 'Citas'
-      },
-      {
-        title: 'La Terraza de Mokambo',
-        desc: 'Gastronomía de autor internacional con fuerte inspiración italiana. Su terraza al aire libre rodeada de palmeras crea un microclima fresco y elegante.',
-        experience: 'Gastronomía'
       }
     ],
     itinerary: [
       { time: '08:00 AM', title: 'Desayuno en el Canal', desc: 'Comienza el día con empanadas de cazón y café guayoyo frente a los canales navegables.' },
       { time: '10:00 AM', title: 'Deportes en Playa Lido', desc: 'Disfruta de las olas o practica kitesurf con los instructores locales en una brisa perfecta.' },
       { time: '05:00 PM', title: 'Atardecer en Cerro El Morro', desc: 'Sube al mirador para contemplar la icónica vista donde el sol se funde con el Mar Caribe.' },
-      { time: '08:00 PM', title: 'Cena Gourmet en Casabar', desc: 'Termina el día con una cena romántica y coctelería de autor en una atmósfera exclusiva.' }
+      { time: '08:00 PM', title: 'Cena Gourmet en Marea', desc: 'Termina el día con una cena romántica y coctelería marina de autor en el restaurante Marea frente al mar.' }
     ]
   },
   barcelona: {
@@ -114,8 +114,8 @@ const DESTINATIONS = {
         experience: 'Cultura'
       },
       {
-        title: 'Casa de la Cultura',
-        desc: 'Una casona restaurada donde se exponen muestras del arte local, danzas folclóricas y la rica artesanía típica del estado.',
+        title: 'Ruinas de la Casa Fuerte',
+        desc: 'Las imponentes ruinas neoclásicas del siglo XVIII, un monumento histórico nacional donde se gestaron importantes luchas patriotas durante la independencia.',
         experience: 'Cultura'
       }
     ]
@@ -135,6 +135,11 @@ const DESTINATIONS = {
       {
         title: 'Cascada La Sirena',
         desc: 'Una espectacular caída de agua dulce rodeada de frondosos senderos verdes, perfecta para refrescarse después de una caminata tropical.',
+        experience: 'Naturaleza'
+      },
+      {
+        title: 'Playa Conoma y Conomita',
+        desc: 'Playas de aguas mansas protegidas por ensenadas boscosas. Su arena rojiza fina contrasta bellamente con el mar verde esmeralda.',
         experience: 'Naturaleza'
       },
       {
