@@ -502,29 +502,31 @@
     height: 100vh;
     height: 100dvh;
     padding: 0;
+    overflow: hidden;
+    /* position:relative ya viene del CSS base - el container usará absolute */
+  }
+
+  /* Posicionamiento absoluto: garantiza que el container cubra exactamente
+     la sección de arriba a abajo, eliminando toda ambigüedad de flexbox */
+  .destinations-layout-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    width: auto;
+    max-width: none;
+    height: auto !important; /* cancela height:80vh del CSS base */
+    margin: 0;
+
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    /* overflow:clip contiene el 3D sin cortar contenido flex */
-    overflow: clip;
-  }
-  
-  /* flex:1 garantiza que ocupa exactamente el espacio del padre */
-  .destinations-layout-container {
-    flex: 1 1 0;
-    min-height: 0;
-    height: 100%; /* cancela el height:80vh del estilo base */
-    flex-direction: column-reverse;
-    width: 90%;
-    margin: 0 auto;
-    gap: 0;
-    justify-content: flex-start;
+    justify-content: flex-end; /* info panel pegado al fondo */
     align-items: center;
-    /* SIN overflow:hidden — no clipear el info panel */
-    overflow: visible;
+    gap: 0;
   }
-  
-  /* El deck ocupa TODO el espacio que sobre después del info panel */
+
+  /* El deck llena todo el espacio sobre el info panel */
   .destinations-deck-wrapper {
     flex: 1 1 0;
     min-height: 0;
@@ -532,31 +534,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible; /* dejar que las cartas del deck asomen */
+    overflow: visible;
   }
-  
+
   .destinations-deck-container {
     width: 185px;
     max-width: 185px;
     height: 240px;
     flex-shrink: 0;
   }
-  
+
   .destinations-deck-container .card-title {
     font-size: 1.4rem;
   }
 
-  /* Info panel ocupa solo su tamaño natural al fondo */
+  /* Info panel: tamaño natural, pegado al fondo */
   .destinations-info-panel {
     flex: 0 0 auto;
     width: 100%;
     align-items: center;
     text-align: center;
     gap: 6px;
-    padding: 10px 0 max(16px, env(safe-area-inset-bottom));
+    padding: 10px 0 max(20px, env(safe-area-inset-bottom));
     box-sizing: border-box;
   }
-  
+
   .destinations-info-panel .section-header {
     align-items: center;
     display: flex;
@@ -568,7 +570,7 @@
     font-size: 1.3rem;
     margin: 0;
   }
-  
+
   .destinations-info-panel .section-header .section-label {
     margin-bottom: 1px;
     font-size: 0.65rem;
@@ -579,13 +581,13 @@
     align-items: center;
     gap: 4px;
   }
-  
+
   .active-dest-name {
     font-size: 1.9rem;
     line-height: 1.1;
   }
-  
-  /* Ocultar descripción en mobile: demasiados elementos para 100dvh */
+
+  /* Descripción oculta en mobile: demasiado texto para 100dvh */
   .active-dest-desc {
     display: none;
   }
@@ -595,7 +597,7 @@
   }
 }
 
-/* Escalar hacia abajo en pantallas de baja altura (ej. iPhone SE) */
+/* Pantallas de baja altura (ej. iPhone SE) */
 @media (max-height: 700px) and (max-width: 768px) {
   .destinations-deck-container {
     width: 160px;
